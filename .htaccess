@@ -1,0 +1,10 @@
+# .htaccess for SNS College of Nursing site
+# Prevent directory listing
+Options -Indexes
+# Set default document
+DirectoryIndex index.html
+# Enable URL rewriting (if needed for SPA routing)
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^.*$ index.html [L]

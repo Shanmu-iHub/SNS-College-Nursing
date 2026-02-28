@@ -1,0 +1,157 @@
+<!-- Navigation -->
+<nav class="bg-white shadow-md sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+            <a href="index.html" class="flex items-center space-x-3">
+                <img src="https://snsct.snscourseware.org/images/ctimg/snscn_logo.png" alt="SNS College of Nursing Logo"
+                    class="h-16 w-auto">
+            </a>
+
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="index.html" class="text-orange-600 font-bold font-medium">Home</a>
+
+                <div class="relative group">
+                    <button class="text-gray-700 hover:text-orange-600 font-medium flex items-center">
+                        Programs <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="absolute hidden group-hover:block bg-white shadow-xl rounded-lg py-2 w-64 mt-0 z-50">
+                        <a href="pages/bsc-nursing.html"
+                            class="block px-4 py-2 hover:bg-orange-50 text-gray-700 font-semibold">B.Sc. Nursing (4
+                            Years)</a>
+                    </div>
+                </div>
+
+                <!-- Infrastructure Dropdown -->
+                <div class="relative group">
+                    <button class="text-gray-700 hover:text-orange-600 font-medium flex items-center">
+                        Infrastructure <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="absolute hidden group-hover:block bg-white shadow-xl rounded-lg py-2 w-48 mt-0 z-50">
+                        <a href="pages/facilities.html"
+                            class="block px-4 py-2 hover:bg-orange-50 text-gray-700">Facilities</a>
+                        <a href="pages/gallery.html"
+                            class="block px-4 py-2 hover:bg-orange-50 text-gray-700">Gallery</a>
+                        <a href="pages/transport.html"
+                            class="block px-4 py-2 hover:bg-orange-50 text-gray-700">Transport</a>
+                    </div>
+                </div>
+
+                <!-- Beyond Academics Dropdown -->
+                <div class="relative group">
+                    <button class="text-gray-700 hover:text-orange-600 font-medium flex items-center">
+                        Beyond Academics <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="absolute hidden group-hover:block bg-white shadow-xl rounded-lg py-2 w-56 mt-0 z-50">
+                        <a href="pages/sports-clubs.html"
+                            class="block px-4 py-2 hover:bg-orange-50 text-gray-700">Sports & Clubs</a>
+                        <a href="pages/innovation.html"
+                            class="block px-4 py-2 hover:bg-orange-50 text-gray-700">Innovation Hub</a>
+                        <a href="pages/events.html" class="block px-4 py-2 hover:bg-orange-50 text-gray-700">Events
+                            & Celebrations</a>
+                        <a href="pages/success-stories.html"
+                            class="block px-4 py-2 hover:bg-orange-50 text-gray-700">Success Stories</a>
+                    </div>
+                </div>
+
+                <!-- Meet Us Dropdown -->
+                <div class="relative group">
+                    <button class="text-gray-700 hover:text-orange-600 font-medium flex items-center">
+                        Meet Us <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="absolute hidden group-hover:block bg-white shadow-xl rounded-lg py-2 w-56 mt-0 z-50">
+                        <a href="pages/about.html" class="block px-4 py-2 hover:bg-orange-50 text-gray-700">About
+                            Us</a>
+                        <a href="pages/contact.html" class="block px-4 py-2 hover:bg-orange-50 text-gray-700">Contact
+                            Us</a>
+                        <a href="pages/mandatory-disclosure.html"
+                            class="block px-4 py-2 hover:bg-orange-50 text-gray-700">Mandatory Disclosure</a>
+                    </div>
+                </div>
+
+                <a href="pages/admissions.html"
+                    class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-bold transition">
+                    Apply Now <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+
+            <button id="mobile-menu-btn" class="md:hidden text-gray-700">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+        <div class="px-4 py-4 space-y-3">
+            <a href="index.html" class="block text-gray-700 hover:text-orange-600 font-medium py-2">Home</a>
+
+            <!-- Programs -->
+            <div>
+                <button
+                    class="w-full text-left text-gray-700 hover:text-orange-600 font-medium py-2 flex justify-between items-center"
+                    onclick="document.getElementById('mobile-programs').classList.toggle('hidden')">
+                    Programs <i class="fas fa-chevron-down"></i>
+                </button>
+                <div id="mobile-programs" class="hidden pl-4 space-y-2 mt-2">
+                    <a href="pages/bsc-nursing.html" class="block text-gray-600 hover:text-orange-600 py-1">B.Sc.
+                        Nursing (4 Years)</a>
+                </div>
+            </div>
+
+            <!-- Infrastructure -->
+            <div>
+                <button
+                    class="w-full text-left text-gray-700 hover:text-orange-600 font-medium py-2 flex justify-between items-center"
+                    onclick="document.getElementById('mobile-infrastructure').classList.toggle('hidden')">
+                    Infrastructure <i class="fas fa-chevron-down"></i>
+                </button>
+                <div id="mobile-infrastructure" class="hidden pl-4 space-y-2 mt-2">
+                    <a href="pages/facilities.html"
+                        class="block text-gray-600 hover:text-orange-600 py-1">Facilities</a>
+                    <a href="pages/gallery.html" class="block text-gray-600 hover:text-orange-600 py-1">Gallery</a>
+                    <a href="pages/transport.html" class="block text-gray-600 hover:text-orange-600 py-1">Transport</a>
+                </div>
+            </div>
+
+            <!-- Beyond Academics -->
+            <div>
+                <button
+                    class="w-full text-left text-gray-700 hover:text-orange-600 font-medium py-2 flex justify-between items-center"
+                    onclick="document.getElementById('mobile-beyond').classList.toggle('hidden')">
+                    Beyond Academics <i class="fas fa-chevron-down"></i>
+                </button>
+                <div id="mobile-beyond" class="hidden pl-4 space-y-2 mt-2">
+                    <a href="pages/sports-clubs.html" class="block text-gray-600 hover:text-orange-600 py-1">Sports
+                        & Clubs</a>
+                    <a href="pages/innovation.html" class="block text-gray-600 hover:text-orange-600 py-1">Innovation
+                        Hub</a>
+                    <a href="pages/events.html" class="block text-gray-600 hover:text-orange-600 py-1">Events &
+                        Celebrations</a>
+                    <a href="pages/success-stories.html" class="block text-gray-600 hover:text-orange-600 py-1">Success
+                        Stories</a>
+                </div>
+            </div>
+
+            <!-- Meet Us -->
+            <div>
+                <button
+                    class="w-full text-left text-gray-700 hover:text-orange-600 font-medium py-2 flex justify-between items-center"
+                    onclick="document.getElementById('mobile-meetus').classList.toggle('hidden')">
+                    Meet Us <i class="fas fa-chevron-down"></i>
+                </button>
+                <div id="mobile-meetus" class="hidden pl-4 space-y-2 mt-2">
+                    <a href="pages/about.html" class="block text-gray-600 hover:text-orange-600 py-1">About Us</a>
+                    <a href="pages/contact.html" class="block text-gray-600 hover:text-orange-600 py-1">Contact
+                        Us</a>
+                    <a href="pages/mandatory-disclosure.html"
+                        class="block text-gray-600 hover:text-orange-600 py-1">Mandatory Disclosure</a>
+                </div>
+            </div>
+
+            <a href="pages/admissions.html"
+                class="block bg-orange-500 text-white text-center px-6 py-3 rounded-lg font-bold">
+                Apply Now <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+        </div>
+    </div>
+</nav>

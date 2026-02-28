@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Brochure | SNS College of Nursing - First Design Thinking Nursing College in India</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        orange: {
+                            50: '#fff2f8',
+                            100: '#fee4f1',
+                            200: '#fcbde1',
+                            300: '#f996cd',
+                            400: '#f56bb7',
+                            500: '#f03a9f',
+                            600: '#E5097F',
+                            700: '#b00761',
+                            800: '#7d0545',
+                            900: '#4a0329',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body class="antialiased bg-gray-50">
+
+    <div id="header"></div>
+    <script src="../assets/js/header-loader.js"></script>
+
+    <!-- Brochure Content -->
+    <section class="py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-12 shadow-xl">
+                <i class="fas fa-file-pdf text-8xl text-red-600 mb-8"></i>
+                <h1 class="text-3xl font-bold mb-4">SNS College of Nursing Prospectus</h1>
+                <p class="text-xl text-gray-700 mb-8 font-light">
+                    Learn about our curriculum, clinical partners, faculty expertise, and placement opportunities.
+                </p>
+
+                <a href="https://snscnursing.org/bscnursingsnscn/" target="_blank"
+                    class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-bold text-lg transition inline-flex items-center justify-center">
+                    <i class="fas fa-download mr-2"></i>
+                    Download Brochure
+                </a>
+
+                <p class="mt-8 text-sm text-gray-600">
+                    Admission Helpline: <a href="tel:+917550316701" class="text-blue-600 hover:underline font-bold">+91
+                        75503 16701</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-orange-600 to-red-600 text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl lg:text-5xl font-bold mb-4">
+                Begin Your Journey in Healthcare Excellence
+            </h2>
+            <p class="text-xl opacity-90 mb-8 font-medium">
+                Admissions open for Academic Year 2026-27. Secure your seat at Coimbatore's premier nursing college.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="admissions.html"
+                    class="bg-white text-orange-600 hover:bg-gray-100 px-8 py-4 rounded-xl font-bold text-lg transition shadow-xl">
+                    <i class="fas fa-pen-to-square mr-2"></i>
+                    Apply for Admission
+                </a>
+                <a href="contact.html"
+                    class="bg-white/20 backdrop-blur-lg hover:bg-white/30 text-white px-8 py-4 rounded-xl font-bold text-lg transition">
+                    <i class="fas fa-hospital mr-2"></i>
+                    Visit Clinical Campus
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer"></div>
+    <script src="../assets/js/footer-loader.js"></script>
+</body>
+
+</html>
