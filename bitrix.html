@@ -108,9 +108,11 @@
 
         /* ================= LABEL HANDLING ================= */
         .b24-form-control-label {
-            position: absolute !important;
-            opacity: 0 !important;
-            pointer-events: none !important;
+            display: none !important;
+        }
+
+        .b24-form-field {
+            margin-bottom: 20px !important;
         }
 
         /* ================= INPUT FIELDS ================= */
@@ -125,195 +127,7 @@
             color: #1a202c !important;
             box-shadow: none !important;
             transition: all 0.3s ease !important;
-        }
-
-        .b24-form-control::placeholder {
-            color: #a0aec0 !important;
-            font-weight: 400 !important;
-        }
-
-        .b24-form-control:focus {
-            border-color: #667eea !important;
-            background: #ffffff !important;
-            outline: none !important;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1) !important;
-        }
-
-        /* ================= DROPDOWN ================= */
-        .b24-form-dropdown {
-            border-radius: 12px !important;
-            border: 2px solid #e2e8f0 !important;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
-            background: white !important;
-        }
-
-        .b24-form-dropdown-item {
-            padding: 12px 18px !important;
-            font-size: 15px !important;
-            font-family: 'Poppins', sans-serif !important;
-            color: #1a202c !important;
-            transition: all 0.2s ease !important;
-        }
-
-        .b24-form-dropdown-item:hover {
-            background: #f7fafc !important;
-            color: #667eea !important;
-        }
-
-        /* ================= SUBMIT BUTTON ================= */
-        .b24-form-btn {
-            width: 100% !important;
-            margin-top: 28px !important;
-            padding: 16px 24px !important;
-            border-radius: 12px !important;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
-            color: #ffffff !important;
-            font-size: 16px !important;
-            font-weight: 600 !important;
-            border: none !important;
-            font-family: 'Poppins', sans-serif !important;
-            cursor: pointer !important;
-            transition: all 0.3s ease !important;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4) !important;
-        }
-
-        .b24-form-btn:hover {
-            transform: translateY(-2px) !important;
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5) !important;
-        }
-
-        .b24-form-btn:active {
-            transform: translateY(0) !important;
-        }
-
-        /* ================= FOOTER TEXT ================= */
-        .b24-form-sign {
-            margin-top: 24px !important;
-            font-size: 12px !important;
-            color: #a0aec0 !important;
-            text-align: center !important;
-        }
-
-        /* ================= INFO SECTION ================= */
-        .info-section {
-            background: #f7fafc;
-            padding: 30px;
-            border-top: 1px solid #e2e8f0;
-        }
-
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .info-item {
-            display: flex;
-            align-items: start;
-            gap: 12px;
-        }
-
-        .info-icon {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 18px;
-            flex-shrink: 0;
-        }
-
-        .info-content h3 {
-            font-size: 14px;
-            font-weight: 600;
-            color: #1a202c;
-            margin-bottom: 4px;
-        }
-
-        .info-content p {
-            font-size: 13px;
-            color: #718096;
-            line-height: 1.5;
-        }
-
-        .info-content a {
-            color: #667eea;
-            text-decoration: none;
-        }
-
-        .info-content a:hover {
-            text-decoration: underline;
-        }
-
-        /* ================= RESPONSIVE ================= */
-        @media (max-width: 768px) {
-            body {
-                padding: 10px;
-            }
-
-            .container {
-                margin: 20px auto;
-                border-radius: 16px;
-            }
-
-            .header {
-                padding: 30px 20px;
-            }
-
-            .header h1 {
-                font-size: 24px;
-            }
-
-            .header p {
-                font-size: 14px;
-            }
-
-            .form-section {
-                padding: 30px 20px;
-            }
-
-            .form-title h2 {
-                font-size: 20px;
-            }
-
-            .info-section {
-                padding: 20px;
-            }
-
-            .info-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* ================= LOADING ANIMATION ================= */
-        .loading {
-            text-align: center;
-            padding: 40px;
-            color: #718096;
-        }
-
-        .spinner {
-            border: 3px solid #f3f4f6;
-            border-top: 3px solid #667eea;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 16px;
-        }
-
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
+            display: block !important;
         }
     </style>
 </head>
@@ -402,39 +216,101 @@
     </div>
 
     <script>
-        // Hide loading spinner when form loads
+        /* Dynamic Form Modifications */
         setTimeout(function () {
-            var loading = document.getElementById('loading');
-            if (loading) {
-                loading.style.display = 'none';
-            }
-        }, 2000);
+            const snsColleges = [
+                "SNS College of Technology",
+                "SNS College of Nursing",
+                "SNS College of Allied Health and Sciences",
+                "SNS College of Physiotherapy",
+                "Dr. SNS Rajalakshmi College of Arts and Science",
+                "Dr. SNS College of Education"
+            ];
 
-        // Placeholder + Asterisk Fix
-        setTimeout(function () {
-            document.querySelectorAll('.b24-form-field').forEach(function (field) {
-                const label = field.querySelector('.b24-form-control-label');
-                const input = field.querySelector('.b24-form-control');
-
-                if (label && input) {
-                    let text = label.textContent.replace(/\s*\*$/, '').trim();
-                    let required = label.textContent.includes('*');
-                    input.placeholder = required ? text + ' *' : text;
+            function modifyFields() {
+                // Global Focus Protection
+                if (document.activeElement && (
+                    document.activeElement.tagName === 'INPUT' ||
+                    document.activeElement.tagName === 'SELECT' ||
+                    document.activeElement.tagName === 'TEXTAREA' ||
+                    document.activeElement.closest('.b24-form-field')
+                )) {
+                    return;
                 }
-            });
 
-            // Hide loading after form is ready
-            var loading = document.getElementById('loading');
-            if (loading) {
-                loading.style.display = 'none';
+                document.querySelectorAll('.b24-form-field').forEach(function (field) {
+                    const label = field.querySelector('.b24-form-control-label');
+                    let input = field.querySelector('.b24-form-control');
+                    if (!label && !input) return;
+
+                    const text = label ? label.textContent.toLowerCase() : "";
+
+                    // 1. Remove "Admission To Grade"
+                    if (text.includes("grade")) {
+                        field.style.display = 'none';
+                    }
+
+                    // 2. Handle "Choose College"
+                    if (text.includes("cbse school") || (input && input.placeholder && input.placeholder.toLowerCase().includes("cbse school"))) {
+                        if (label && label.textContent !== "Choose College *") label.textContent = "Choose College *";
+                        if (input) {
+                            if (input.placeholder !== "Choose College *") input.placeholder = "Choose College *";
+
+                            // Convert text input to select if needed
+                            if (input.tagName === 'INPUT' && !input.dataset.converted) {
+                                const select = document.createElement('select');
+                                for (let attr of input.attributes) {
+                                    if (attr.name !== 'type' && attr.name !== 'value') select.setAttribute(attr.name, attr.value);
+                                }
+                                select.className = input.className;
+                                select.dataset.converted = "true";
+                                input.parentNode.replaceChild(select, input);
+                                input = select;
+                            }
+
+                            if (input.tagName === 'SELECT' && !input.dataset.replaced) {
+                                input.innerHTML = '<option value="">Choose College *</option>' +
+                                    snsColleges.map(function (c) { return '<option value="' + c + '">' + c + '</option>'; }).join('');
+                                input.dataset.replaced = "true";
+                                input.value = "";
+                                input.dispatchEvent(new Event('change', { bubbles: true }));
+                            }
+                        }
+                    }
+
+                    // 3. Passive purge of "SNSACD" - only once
+                    if (input && input.value && input.value.includes("SNSACD") && !input.dataset.purged) {
+                        input.value = "";
+                        input.dataset.purged = "true";
+                        input.dispatchEvent(new Event('change', { bubbles: true }));
+                    }
+
+                    // Sync placeholders
+                    if (label && input && (!input.placeholder || !input.placeholder.includes("*"))) {
+                        let labelText = label.textContent.replace(/\s*\*$/, '').trim();
+                        if (labelText) {
+                            const newPlaceholder = label.textContent.includes('*') ? labelText + ' *' : labelText;
+                            if (input.placeholder !== newPlaceholder) input.placeholder = newPlaceholder;
+                        }
+                    }
+                });
+
+                // Hide loading after form is ready
+                var loading = document.getElementById('loading');
+                if (loading) {
+                    loading.style.display = 'none';
+                }
             }
-        }, 1000);
+
+            modifyFields();
+            const interval = setInterval(modifyFields, 800);
+            setTimeout(() => clearInterval(interval), 10000);
+        }, 500);
 
         // Form submission tracking (optional)
         document.addEventListener('submit', function (e) {
             if (e.target.classList.contains('b24-form')) {
                 console.log('Form submitted successfully!');
-                // You can add analytics tracking here
             }
         });
     </script>

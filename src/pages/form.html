@@ -1,186 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<title>Admission Enquiry – SNS Academy</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Admission Enquiry – SNS Academy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Poppins Font -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Poppins Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<style>
-/* ================= BASE ================= */
-body {
-    margin: 0;
-    background: #f5f6f8;
-    font-family: 'Poppins', sans-serif;
-}
+    <style>
+        /* ================= BASE ================= */
+        body {
+            margin: 0;
+            background: #f5f6f8;
+            font-family: 'Poppins', sans-serif;
+        }
 
-/* ================= CARD ================= */
-.form-card {
-    max-width: 640px;
-    margin: 40px auto;
-    padding: 40px 36px 44px;
-    background: #ffffff;
-    border-radius: 20px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.06);
-}
+        /* ================= CARD ================= */
+        .form-card {
+            max-width: 640px;
+            margin: 40px auto;
+            padding: 40px 36px 44px;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.06);
+        }
 
-/* ================= HEADER ================= */
-.form-title {
-    text-align: center;
-    margin-bottom: 36px;
-}
-.form-title h2 {
-    margin: 0;
-    font-size: 30px;
-    font-weight: 700;
-    color: #111;
-}
-.form-title p {
-    margin-top: 6px;
-    font-size: 15px;
-    color: #6b6f76;
-}
+        /* ================= HEADER ================= */
+        .form-title {
+            text-align: center;
+            margin-bottom: 36px;
+        }
 
-/* ================= BITRIX RESET ================= */
-.b24-form-wrapper {
-    background: transparent !important;
-    border: none !important;
-    padding: 0 !important;
-    box-shadow: none !important;
-}
+        .form-title h2 {
+            margin: 0;
+            font-size: 30px;
+            font-weight: 700;
+            color: #111;
+        }
 
-.b24-form-header {
-    display: none !important;
-}
+        .form-title p {
+            margin-top: 6px;
+            font-size: 15px;
+            color: #6b6f76;
+        }
 
-.b24-form-field {
-    margin-bottom: 24px !important;
-}
+        /* ================= BITRIX RESET ================= */
+        .b24-form-wrapper {
+            background: transparent !important;
+            border: none !important;
+            padding: 0 !important;
+            box-shadow: none !important;
+        }
 
-/* ================= CRITICAL FIX ================= */
-/* Remove Bitrix auto separators (DOB & dropdown lines) */
-.b24-form-separator,
-.b24-form-field-separator,
-.b24-form-field::before,
-.b24-form-field::after {
-    display: none !important;
-    content: none !important;
-    height: 0 !important;
-    border: none !important;
-}
+        .b24-form-header {
+            display: none !important;
+        }
 
-/* ================= LABEL HANDLING ================= */
-/* Keep labels for Bitrix logic, hide visually */
-.b24-form-control-label {
-    position: absolute !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-}
+        .b24-form-field {
+            margin-bottom: 24px !important;
+        }
 
-/* ================= INPUTS ================= */
-.b24-form-control {
-    width: 100% !important;
-    background: #ffffff !important;
-    border: 1px solid #dfe3e8 !important;
-    border-radius: 14px !important;
-    padding: 16px 18px !important;
-    font-size: 15px !important;
-    font-family: 'Poppins', sans-serif !important;
-    color: #111 !important;
-    box-shadow: none !important;
-}
+        /* ================= CRITICAL FIX ================= */
+        /* Remove Bitrix auto separators (DOB & dropdown lines) */
+        .b24-form-separator,
+        .b24-form-field-separator,
+        .b24-form-field::before,
+        .b24-form-field::after {
+            display: none !important;
+            content: none !important;
+            height: 0 !important;
+            border: none !important;
+        }
 
-.b24-form-control::placeholder {
-    color: #9aa0a6 !important;
-    font-weight: 400;
-}
+        /* ================= LABEL HANDLING ================= */
+        /* Hide labels completely to prevent double-text when placeholders are used */
+        .b24-form-control-label {
+            display: none !important;
+        }
 
-.b24-form-control:focus {
-    border-color: #111 !important;
-}
+        /* Ensure padding is consistent without labels */
+        .b24-form-field {
+            margin-bottom: 20px !important;
+        }
 
-/* ================= DROPDOWN LIST ================= */
-.b24-form-dropdown {
-    border-radius: 14px !important;
-    border: 1px solid #fcfcfc !important;
-    box-shadow: 0 12px 28px rgba(0,0,0,0.12) !important;
-}
-
-.b24-form-dropdown-item {
-    padding: 14px 18px !important;
-    font-size: 15px !important;
-    font-family: 'Poppins', sans-serif !important;
-}
-
-.b24-form-dropdown-item:hover {
-    background: #f5f6f8 !important;
-}
-
-/* ================= CTA ================= */
-.b24-form-btn {
-    width: 100% !important;
-    margin-top: 28px !important;
-    padding: 18px !important;
-    border-radius: 16px !important;
-    background: #E5097F !important;
-    color: #ffffff !important;
-    font-size: 18px !important;
-    font-weight: 600 !important;
-    border: none !important;
-    font-family: 'Poppins', sans-serif !important;
-}
-
-.b24-form-btn:hover {
-    background: #b00761 !important;
-}
-
-/* ================= FOOTER ================= */
-.b24-form-sign {
-    margin-top: 20px !important;
-    font-size: 13px !important;
-    color: #9aa0a6 !important;
-}
-</style>
+        /* ================= INPUTS ================= */
+        .b24-form-control {
+            width: 100% !important;
+            background: #ffffff !important;
+            border: 1px solid #dfe3e8 !important;
+            border-radius: 14px !important;
+            padding: 16px 18px !important;
+            font-size: 15px !important;
+            font-family: 'Poppins', sans-serif !important;
+            color: #111 !important;
+            box-shadow: none !important;
+            display: block !important;
+        }
+    </style>
 </head>
 
 <body>
 
-<div class="form-card">
-    <div class="form-title">
-        <h2>Admission Enquiry</h2>
-        <p>SNS Academy</p>
+    <div class="form-card">
+        <div class="form-title">
+            <h2>Admission Enquiry</h2>
+            <p>SNS Academy</p>
+        </div>
+
+        <!-- BITRIX FORM (UNCHANGED FUNCTIONALITY) -->
+        <script data-b24-form="inline/18/m4ecvi" data-skip-moving="true">
+            (function (w, d, u) {
+                var s = d.createElement('script');
+                s.async = true;
+                s.src = u + '?' + (Date.now() / 180000 | 0);
+                var h = d.getElementsByTagName('script')[0]; h.parentNode.insertBefore(s, h);
+            })(window, document, 'https://cdn.bitrix24.com/b11752903/crm/form/loader_18.js');
+        </script>
     </div>
 
-    <!-- BITRIX FORM (UNCHANGED FUNCTIONALITY) -->
-    <script data-b24-form="inline/18/m4ecvi" data-skip-moving="true">
-    (function(w,d,u){
-        var s=d.createElement('script');
-        s.async=true;
-        s.src=u+'?'+(Date.now()/180000|0);
-        var h=d.getElementsByTagName('script')[0];
-        h.parentNode.insertBefore(s,h);
-    })(window,document,'https://cdn.bitrix24.com/b11752903/crm/form/loader_18.js');
+    <script>
+        /* Dynamic Form Modifications */
+        setTimeout(function () {
+            const snsColleges = [
+                "SNS College of Technology",
+                "SNS College of Nursing",
+                "SNS College of Allied Health and Sciences",
+                "SNS College of Physiotherapy",
+                "Dr. SNS Rajalakshmi College of Arts and Science",
+                "Dr. SNS College of Education"
+            ];
+
+            function modifyFields() {
+                // Global Focus Protection
+                if (document.activeElement && (
+                    document.activeElement.tagName === 'INPUT' ||
+                    document.activeElement.tagName === 'SELECT' ||
+                    document.activeElement.tagName === 'TEXTAREA' ||
+                    document.activeElement.closest('.b24-form-field')
+                )) {
+                    return;
+                }
+
+                document.querySelectorAll('.b24-form-field').forEach(function (field) {
+                    const label = field.querySelector('.b24-form-control-label');
+                    let input = field.querySelector('.b24-form-control');
+                    if (!label && !input) return;
+
+                    const text = label ? label.textContent.toLowerCase() : "";
+
+                    // 1. Remove "Admission To Grade"
+                    if (text.includes("grade")) {
+                        field.style.display = 'none';
+                    }
+
+                    // 2. Handle "Choose College"
+                    if (text.includes("cbse school") || (input && input.placeholder && input.placeholder.toLowerCase().includes("cbse school"))) {
+                        if (label && label.textContent !== "Choose College *") label.textContent = "Choose College *";
+                        if (input) {
+                            if (input.placeholder !== "Choose College *") input.placeholder = "Choose College *";
+
+                            // Convert text input to select if needed
+                            if (input.tagName === 'INPUT' && !input.dataset.converted) {
+                                const select = document.createElement('select');
+                                for (let attr of input.attributes) {
+                                    if (attr.name !== 'type' && attr.name !== 'value') select.setAttribute(attr.name, attr.value);
+                                }
+                                select.className = input.className;
+                                select.dataset.converted = "true";
+                                input.parentNode.replaceChild(select, input);
+                                input = select;
+                            }
+
+                            if (input.tagName === 'SELECT' && !input.dataset.replaced) {
+                                input.innerHTML = '<option value="">Choose College *</option>' +
+                                    snsColleges.map(function (c) { return '<option value="' + c + '">' + c + '</option>'; }).join('');
+                                input.dataset.replaced = "true";
+                                input.value = "";
+                                input.dispatchEvent(new Event('change', { bubbles: true }));
+                            }
+                        }
+                    }
+
+                    // 3. Passive purge of "SNSACD" - only once
+                    if (input && input.value && input.value.includes("SNSACD") && !input.dataset.purged) {
+                        input.value = "";
+                        input.dataset.purged = "true";
+                        input.dispatchEvent(new Event('change', { bubbles: true }));
+                    }
+
+                    // Sync placeholders
+                    if (label && input && (!input.placeholder || !input.placeholder.includes("*"))) {
+                        let labelText = label.textContent.replace(/\s*\*$/, '').trim();
+                        if (labelText) {
+                            const newPlaceholder = label.textContent.includes('*') ? labelText + ' *' : labelText;
+                            if (input.placeholder !== newPlaceholder) {
+                                input.placeholder = newPlaceholder;
+                            }
+                        }
+                    }
+                });
+            }
+
+            modifyFields();
+            const interval = setInterval(modifyFields, 800);
+            setTimeout(() => clearInterval(interval), 10000);
+        }, 500);
     </script>
-</div>
-
-<script>
-/* ================= PLACEHOLDER + ASTERISK FIX ================= */
-/* Matches old form behavior */
-setTimeout(function () {
-    document.querySelectorAll('.b24-form-field').forEach(function (field) {
-        const label = field.querySelector('.b24-form-control-label');
-        const input = field.querySelector('.b24-form-control');
-
-        if (label && input) {
-            let text = label.textContent.replace(/\s*\*$/, '').trim();
-            let required = label.textContent.includes('*');
-            input.placeholder = required ? text + ' *' : text;
-        }
-    });
-}, 500);
-</script>
 
 </body>
+
 </html>

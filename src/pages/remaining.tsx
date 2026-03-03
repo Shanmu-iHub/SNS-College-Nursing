@@ -784,19 +784,94 @@ export const ContactPage = () => {
                     })(window,document,'https://cdn.bitrix24.com/b11752903/crm/form/loader_18.js');
                     </script>
                     
+                    <style>
+                    .b24-form-control-label { display: none !important; }
+                    .b24-form-field { margin-bottom: 20px !important; }
+                    </style>
                     <script>
-                    /* Placeholder + Asterisk Fix */
+                    /* Dynamic Form Modifications */
                     setTimeout(function () {
-                        document.querySelectorAll('.b24-form-field').forEach(function (field) {
-                            const label = field.querySelector('.b24-form-control-label');
-                            const input = field.querySelector('.b24-form-control');
-                            
-                            if (label && input) {
-                                let text = label.textContent.replace(/\\s*\\*$/, '').trim();
-                                let required = label.textContent.includes('*');
-                                input.placeholder = required ? text + ' *' : text;
+                        const snsColleges = [
+                            "SNS College of Technology",
+                            "SNS College of Nursing",
+                            "SNS College of Allied Health and Sciences",
+                            "SNS College of Physiotherapy",
+                            "Dr. SNS Rajalakshmi College of Arts and Science",
+                            "Dr. SNS College of Education"
+                        ];
+
+                        function modifyFields() {
+                            // Global Focus Protection: Skip if user is typing anywhere in the form
+                            if (document.activeElement && (
+                                document.activeElement.tagName === 'INPUT' || 
+                                document.activeElement.tagName === 'SELECT' || 
+                                document.activeElement.tagName === 'TEXTAREA' ||
+                                document.activeElement.closest('.b24-form-field')
+                            )) {
+                                return;
                             }
-                        });
+
+                            document.querySelectorAll('.b24-form-field').forEach(function (field) {
+                                const label = field.querySelector('.b24-form-control-label');
+                                let input = field.querySelector('.b24-form-control');
+                                if (!label && !input) return;
+
+                                const text = label ? label.textContent.toLowerCase() : "";
+
+                                // 1. Remove "Admission To Grade"
+                                if (text.includes("grade")) {
+                                    field.style.display = 'none';
+                                }
+
+                                // 2. Handle "Choose College"
+                                if (text.includes("cbse school") || (input && input.placeholder && input.placeholder.toLowerCase().includes("cbse school"))) {
+                                    if (label && label.textContent !== "Choose College *") label.textContent = "Choose College *";
+                                    if (input) {
+                                        if (input.placeholder !== "Choose College *") input.placeholder = "Choose College *";
+                                        
+                                        // Convert text input to select if needed
+                                        if (input.tagName === 'INPUT' && !input.dataset.converted) {
+                                            const select = document.createElement('select');
+                                            for (let attr of input.attributes) {
+                                                if (attr.name !== 'type' && attr.name !== 'value') select.setAttribute(attr.name, attr.value);
+                                            }
+                                            select.className = input.className;
+                                            select.dataset.converted = "true";
+                                            input.parentNode.replaceChild(select, input);
+                                            input = select;
+                                        }
+
+                                        if (input.tagName === 'SELECT' && !input.dataset.replaced) {
+                                            input.innerHTML = '<option value="">Choose College *</option>' + 
+                                                snsColleges.map(function(c) { return '<option value="' + c + '">' + c + '</option>'; }).join('');
+                                            input.dataset.replaced = "true";
+                                            input.value = "";
+                                            input.dispatchEvent(new Event('change', { bubbles: true }));
+                                        }
+                                    }
+                                }
+
+                                // 3. Passive purge of "SNSACD" - only once
+                                if (input && input.value && input.value.includes("SNSACD") && !input.dataset.purged) {
+                                    input.value = "";
+                                    input.dataset.purged = "true";
+                                    input.dispatchEvent(new Event('change', { bubbles: true }));
+                                }
+
+                                // Sync placeholders
+                                if (label && input && (!input.placeholder || !input.placeholder.includes("*"))) {
+                                    let labelText = label.textContent.replace(/\s*\*$/, '').trim();
+                                    if (labelText) {
+                                        const newPlaceholder = label.textContent.includes('*') ? labelText + ' *' : labelText;
+                                        if (input.placeholder !== newPlaceholder) input.placeholder = newPlaceholder;
+                                    }
+                                }
+                            });
+                        }
+
+                        modifyFields();
+                        const interval = setInterval(modifyFields, 800);
+                        setTimeout(() => clearInterval(interval), 10000);
                     }, 500);
                     </script>
                 </div>
@@ -980,14 +1055,59 @@ export const AdmissionsPage = () => {
                 <script>
                 /* Placeholder + Asterisk Fix */
                 setTimeout(function () {
+                    const snsColleges = [
+                        "SNS College of Technology",
+                        "SNS College of Engineering",
+                        "SNS Academy",
+                        "Dr. SNS Rajalakshmi College of Arts and Science",
+                        "SNS College of Allied Health Sciences",
+                        "SNS College of Pharmacy",
+                        "SNS College of Nursing",
+                        "SNS College of Physiotherapy",
+                        "SNS College of Education"
+                    ];
+
+                    function modifyFields() {
+                        document.querySelectorAll('.b24-form-field').forEach(function (field) {
+                            const label = field.querySelector('.b24-form-control-label');
+                            const input = field.querySelector('.b24-form-control');
+                            const text = label ? label.textContent.toLowerCase() : "";
+
+                            // 1. Remove "Admission To Grade"
+                            if (text.includes("grade")) {
+                                field.style.display = 'none';
+                            }
+
+                            // 2. Replace "CBSE SCHOOL" with "Choose College"
+                            if (text.includes("cbse school") || (input && input.placeholder && input.placeholder.toLowerCase().includes("cbse school"))) {
+                                if (label) label.textContent = "Choose College *";
+                                if (input) {
+                                    input.placeholder = "Choose College *";
+                                    
+                                    if (input.tagName === 'SELECT') {
+                                        if (input.options.length <= 1 || !input.options[1].text.includes("SNS")) {
+                                            input.innerHTML = '<option value="">Choose College *</option>' + 
+                                                snsColleges.map(function(c) { return '<option value="' + c + '">' + c + '</option>'; }).join('');
+                                        }
+                                    }
+                                }
+                            }
+                        });
+                    }
+
+                    // Run multiple times to ensure we catch the form load
+                    modifyFields();
+                    const interval = setInterval(modifyFields, 1000);
+                    setTimeout(() => clearInterval(interval), 10000);
+
                     document.querySelectorAll('.b24-form-field').forEach(function (field) {
                         const label = field.querySelector('.b24-form-control-label');
                         const input = field.querySelector('.b24-form-control');
                         
                         if (label && input) {
-                            let text = label.textContent.replace(/\\s*\\*$/, '').trim();
+                            let labelText = label.textContent.replace(/\s*\*$/, '').trim();
                             let required = label.textContent.includes('*');
-                            input.placeholder = required ? text + ' *' : text;
+                            input.placeholder = required ? labelText + ' *' : labelText;
                         }
                     });
                 }, 500);
