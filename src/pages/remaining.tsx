@@ -415,7 +415,7 @@ export const AboutPage = () => {
                             Pioneering <span class="text-orange-600">Nursing Innovation</span>
                         </h2>
                         <p class="text-lg text-gray-600 leading-relaxed mb-6">
-                            SNS College of Nursing is dedicated to providing quality education of international standards. We are the **First Indian Institute to implement Design Thinking** in Nursing education, preparing highly qualified nurses who optimize health and wellness.
+                            SNS College of Nursing is dedicated to providing quality education of international standards. We are the <strong>First Indian Institute to implement Design Thinking</strong> in Nursing education, preparing highly qualified nurses who optimize health and wellness.
                         </p>
                         <p class="text-lg text-gray-600 leading-relaxed">
                             <strong>Sincerity, Nobility, and Service</strong> are the core values that guide our clinical practices and academic pursuits at SNS College of Nursing.
