@@ -467,7 +467,7 @@ export const Layout = (content: string, title: string, activePage: string = 'hom
                             <a href="https://www.facebook.com/snsinstitutions" target="_blank" class="w-10 h-10 bg-gray-800 hover:bg-orange-600 rounded-lg flex items-center justify-center transition">
                                 <i class="fab fa-facebook-f"></i>
                             </a>
-                            <a href="https://www.instagram.com/snsacademyorg" target="_blank" class="w-10 h-10 bg-gray-800 hover:bg-orange-600 rounded-lg flex items-center justify-center transition">
+                            <a href="https://www.instagram.com/snsinstitutions/" target="_blank" class="w-10 h-10 bg-gray-800 hover:bg-orange-600 rounded-lg flex items-center justify-center transition">
                                 <i class="fab fa-instagram"></i>
                             </a>
                             <a href="https://www.youtube.com/@snsinstitutions" target="_blank" class="w-10 h-10 bg-gray-800 hover:bg-orange-600 rounded-lg flex items-center justify-center transition">
@@ -510,7 +510,7 @@ export const Layout = (content: string, title: string, activePage: string = 'hom
             });
         </script>
         <!-- Instagram Floating Icon -->
-        <a href="https://www.instagram.com/snsacademy" class="instagram-float" target="_blank" rel="noopener noreferrer"
+        <a href="https://www.instagram.com/snsinstitutions/" class="instagram-float" target="_blank" rel="noopener noreferrer"
             title="Follow us on Instagram">
             <i class="fab fa-instagram"></i>
         </a>

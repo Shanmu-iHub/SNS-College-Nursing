@@ -3,8 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="static/images/Favicon.png?v=2">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admission and Enquiry Form - SNS Academy</title>
+    <title>Admission and Enquiry Form - SNS College of Nursing</title>
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -38,7 +39,7 @@
 
         /* ================= HEADER ================= */
         .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #9298CB 0%, #6E76B5 100%);
             padding: 40px 30px;
             text-align: center;
             color: white;
@@ -108,11 +109,9 @@
 
         /* ================= LABEL HANDLING ================= */
         .b24-form-control-label {
-            display: none !important;
-        }
-
-        .b24-form-field {
-            margin-bottom: 20px !important;
+            position: absolute !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
         }
 
         /* ================= INPUT FIELDS ================= */
@@ -127,17 +126,230 @@
             color: #1a202c !important;
             box-shadow: none !important;
             transition: all 0.3s ease !important;
-            display: block !important;
+        }
+
+        .b24-form-control::placeholder {
+            color: #a0aec0 !important;
+            font-weight: 400 !important;
+        }
+
+        .b24-form-control:focus {
+            border-color: #9298CB !important;
+            background: #ffffff !important;
+            outline: none !important;
+            box-shadow: 0 0 0 3px rgba(146, 152, 203, 0.1) !important;
+        }
+
+        /* ================= DROPDOWN ================= */
+        .b24-form-dropdown {
+            border-radius: 12px !important;
+            border: 2px solid #e2e8f0 !important;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+            background: white !important;
+        }
+
+        .b24-form-dropdown-item {
+            padding: 12px 18px !important;
+            font-size: 15px !important;
+            font-family: 'Poppins', sans-serif !important;
+            color: #1a202c !important;
+            transition: all 0.2s ease !important;
+        }
+
+        .b24-form-dropdown-item:hover {
+            background: #f7fafc !important;
+            color: #9298CB !important;
+        }
+
+        /* ================= SUBMIT BUTTON ================= */
+        .b24-form-btn {
+            width: 100% !important;
+            margin-top: 28px !important;
+            padding: 16px 24px !important;
+            border-radius: 12px !important;
+            background: linear-gradient(135deg, #9298CB 0%, #6E76B5 100%) !important;
+            color: #ffffff !important;
+            font-size: 16px !important;
+            font-weight: 600 !important;
+            border: none !important;
+            font-family: 'Poppins', sans-serif !important;
+            cursor: pointer !important;
+            transition: all 0.3s ease !important;
+            box-shadow: 0 4px 15px rgba(146, 152, 203, 0.4) !important;
+        }
+
+        .b24-form-btn:hover {
+            transform: translateY(-2px) !important;
+            box-shadow: 0 6px 20px rgba(146, 152, 203, 0.5) !important;
+        }
+
+        .b24-form-btn:active {
+            transform: translateY(0) !important;
+        }
+
+        /* ================= FOOTER TEXT ================= */
+        .b24-form-sign {
+            margin-top: 24px !important;
+            font-size: 12px !important;
+            color: #a0aec0 !important;
+            text-align: center !important;
+        }
+
+        /* ================= INFO SECTION ================= */
+        .info-section {
+            background: #f7fafc;
+            padding: 30px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: start;
+            gap: 12px;
+        }
+
+        .info-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #9298CB 0%, #6E76B5 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .info-content h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 4px;
+        }
+
+        .info-content p {
+            font-size: 13px;
+            color: #718096;
+            line-height: 1.5;
+        }
+
+        .info-content a {
+            color: #9298CB;
+            text-decoration: none;
+        }
+
+        .info-content a:hover {
+            text-decoration: underline;
+        }
+
+        /* ================= RESPONSIVE ================= */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                margin: 20px auto;
+                border-radius: 16px;
+            }
+
+            .header {
+                padding: 30px 20px;
+            }
+
+            .header h1 {
+                font-size: 24px;
+            }
+
+            .header p {
+                font-size: 14px;
+            }
+
+            .form-section {
+                padding: 30px 20px;
+            }
+
+            .form-title h2 {
+                font-size: 20px;
+            }
+
+            .info-section {
+                padding: 20px;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ================= LOADING ANIMATION ================= */
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #718096;
+        }
+
+        .spinner {
+            border: 3px solid #f3f4f6;
+            border-top: 3px solid #9298CB;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 16px;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
     </style>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f4f5f9',
+                            100: '#e8eaf2',
+                            200: '#d1d5e6',
+                            300: '#babfd9',
+                            400: '#a4a9cc',
+                            500: '#9298CB',
+                            600: '#7a7fac',
+                            700: '#62668d',
+                            800: '#4b4e6e',
+                            900: '#33354f',
+                            DEFAULT: '#9298CB',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
 </head>
 
 <body>
     <div class="container">
         <!-- Header -->
         <div class="header">
-            <h1>SNS Academy</h1>
-            <p>Redesigning Common Minds & Business Towards Excellence</p>
+            <h1>SNS College of Physiotherapy</h1>
+            <p>Empowering Healers Through Design Thinking & Excellence in Care</p>
         </div>
 
         <!-- Form Section -->
@@ -156,13 +368,13 @@
             <!-- Bitrix24 Form -->
             <div id="bitrix-form-container"></div>
             <script data-b24-form="inline/18/m4ecvi" data-skip-moving="true">
-                (function (w, d, u) {
-                    var s = d.createElement('script');
-                    s.async = true;
-                    s.src = u + '?' + (Date.now() / 180000 | 0);
-                    var h = d.getElementsByTagName('script')[0];
-                    h.parentNode.insertBefore(s, h);
-                })(window, document, 'https://cdn.bitrix24.com/b11752903/crm/form/loader_18.js');
+                    (function (w, d, u) {
+                        var s = d.createElement('script');
+                        s.async = true;
+                        s.src = u + '?' + (Date.now() / 180000 | 0);
+                        var h = d.getElementsByTagName('script')[0];
+                        h.parentNode.insertBefore(s, h);
+                    })(window, document, 'https://cdn.bitrix24.com/b11752903/crm/form/loader_18.js');
             </script>
         </div>
 
@@ -175,7 +387,8 @@
                     </div>
                     <div class="info-content">
                         <h3>Address</h3>
-                        <p>Thudiyalur - Saravanampatti Road,<br>Vellakinar Post,Coimbatore - 641029</p>
+                        <p>SNS Kalvi Nagar, Sathy Main Road (Opp. CRI Pumps),<br>Kurumbapalayam (Po), Coimbatore – 641
+                            107</p>
                     </div>
                 </div>
 
@@ -185,8 +398,8 @@
                     </div>
                     <div class="info-content">
                         <h3>Phone</h3>
-                        <p>Admission: <a href="tel:+919629937861">+91 96299 37861</a><br>
-                            Landline: <a href="tel:+917530093730">+91 75300 93730</a></p>
+                        <p>Admission: <a href="tel:+919003655855">+91 90036 55855</a><br>
+                            General: <a href="tel:+919952794297">+91 99527 94297</a></p>
                     </div>
                 </div>
 
@@ -196,8 +409,7 @@
                     </div>
                     <div class="info-content">
                         <h3>Email</h3>
-                        <p>General: <a href="mailto:info@snsacademy.org">info@snsacademy.org</a><br>
-                            Career: <a href="mailto:job@snsgroups.com">job@snsgroups.com</a></p>
+                        <p>General: <a href="mailto:snsphysio@gmail.com">snsphysio@gmail.com</a></p>
                     </div>
                 </div>
 
@@ -216,98 +428,126 @@
     </div>
 
     <script>
-        /* Dynamic Form Modifications */
+        // Hide loading spinner when form loads
         setTimeout(function () {
-            const snsColleges = [
-                "SNS College of Technology",
-                "SNS College of Nursing",
-                "SNS College of Allied Health and Sciences",
-                "SNS College of Physiotherapy",
-                "Dr. SNS Rajalakshmi College of Arts and Science",
-                "Dr. SNS College of Education"
-            ];
+            var loading = document.getElementById('loading');
+            if (loading) {
+                loading.style.display = 'none';
+            }
+        }, 3000);
 
-            function modifyFields() {
-                // Global Focus Protection
-                if (document.activeElement && (
-                    document.activeElement.tagName === 'INPUT' ||
-                    document.activeElement.tagName === 'SELECT' ||
-                    document.activeElement.tagName === 'TEXTAREA' ||
-                    document.activeElement.closest('.b24-form-field')
-                )) {
-                    return;
-                }
+        // Advanced Form Fixer for Bitrix24
+        const snsColleges = [
+            "SNS College of Technology",
+            "SNS College of Engineering",
+            "Dr. SNS Rajalakshmi College of Arts and Science",
+            "SNS College of Allied Health Sciences",
+            "SNS College of Pharmacy",
+            "SNS College of Nursing",
+            "SNS College of Physiotherapy",
+            "Dr. SNS College of Education"
+        ];
 
-                document.querySelectorAll('.b24-form-field').forEach(function (field) {
-                    const label = field.querySelector('.b24-form-control-label');
-                    let input = field.querySelector('.b24-form-control');
-                    if (!label && !input) return;
+        function applyFormFixes() {
+            const fields = document.querySelectorAll('.b24-form-field');
+            fields.forEach(field => {
+                const label = field.querySelector('.b24-form-control-label');
+                const input = field.querySelector('.b24-form-control');
+                const container = field;
 
-                    const text = label ? label.textContent.toLowerCase() : "";
+                if (label) {
+                    const text = label.textContent.trim();
 
                     // 1. Remove "Admission To Grade"
-                    if (text.includes("grade")) {
-                        field.style.display = 'none';
+                    if (text.includes('Admission To Grade')) {
+                        container.style.display = 'none';
+                        return;
                     }
 
-                    // 2. Handle "Choose College"
-                    if (text.includes("cbse school") || (input && input.placeholder && input.placeholder.toLowerCase().includes("cbse school"))) {
-                        if (label && label.textContent !== "Choose College *") label.textContent = "Choose College *";
-                        if (input) {
-                            if (input.placeholder !== "Choose College *") input.placeholder = "Choose College *";
+                    // 2. Replace Academy field with "Choose College" Dropdown
+                    if (text.includes('SNSACD') || text.includes('SNS Academy') || text.includes('CBSE SCHOOL')) {
+                        label.textContent = "Choose College *";
 
-                            // Convert text input to select if needed
-                            if (input.tagName === 'INPUT' && !input.dataset.converted) {
-                                const select = document.createElement('select');
-                                for (let attr of input.attributes) {
-                                    if (attr.name !== 'type' && attr.name !== 'value') select.setAttribute(attr.name, attr.value);
-                                }
-                                select.className = input.className;
-                                select.dataset.converted = "true";
-                                input.parentNode.replaceChild(select, input);
-                                input = select;
-                            }
+                        // If it's not already a select, swap it
+                        if (input && input.tagName !== 'SELECT' && !input.dataset.replaced) {
+                            const select = document.createElement('select');
+                            select.className = input.className;
+                            select.name = input.name;
+                            select.required = true;
+                            select.dataset.replaced = "true";
 
-                            if (input.tagName === 'SELECT' && !input.dataset.replaced) {
-                                input.innerHTML = '<option value="">Choose College *</option>' +
-                                    snsColleges.map(function (c) { return '<option value="' + c + '">' + c + '</option>'; }).join('');
-                                input.dataset.replaced = "true";
-                                input.value = "";
-                                input.dispatchEvent(new Event('change', { bubbles: true }));
-                            }
+                            select.innerHTML = '<option value="">Choose College *</option>' +
+                                snsColleges.map(c => `<option value="${c}">${c}</option>`).join('');
+
+                            input.parentNode.replaceChild(select, input);
+
+                            // Handle Bitrix dynamic value binding if needed
+                            select.addEventListener('change', (e) => {
+                                const event = new Event('input', { bubbles: true });
+                                select.dispatchEvent(event);
+                            });
+                        }
+                        return;
+                    }
+
+                    // 3. Rename "Name of the Child" -> "Name of the Candidate"
+                    if (text.includes('Name of the Child')) {
+                        label.textContent = text.replace('Name of the Child', 'Name of the Candidate');
+                        if (input && input.tagName !== 'SELECT') {
+                            let required = text.includes('*');
+                            input.placeholder = 'Name of the Candidate' + (required ? ' *' : '');
                         }
                     }
 
-                    // 3. Passive purge of "SNSACD" - only once
-                    if (input && input.value && input.value.includes("SNSACD") && !input.dataset.purged) {
-                        input.value = "";
-                        input.dataset.purged = "true";
-                        input.dispatchEvent(new Event('change', { bubbles: true }));
-                    }
-
-                    // Sync placeholders
-                    if (label && input && (!input.placeholder || !input.placeholder.includes("*"))) {
-                        let labelText = label.textContent.replace(/\s*\*$/, '').trim();
-                        if (labelText) {
-                            const newPlaceholder = label.textContent.includes('*') ? labelText + ' *' : labelText;
-                            if (input.placeholder !== newPlaceholder) input.placeholder = newPlaceholder;
+                    // 4. Rename "Parent Name" -> "Parent / Guardian Name"
+                    if (text.includes('Parent Name')) {
+                        label.textContent = text.replace('Parent Name', 'Parent / Guardian Name');
+                        if (input && input.tagName !== 'SELECT') {
+                            let required = text.includes('*');
+                            input.placeholder = 'Parent / Guardian Name' + (required ? ' *' : '');
                         }
                     }
-                });
 
-                // Hide loading after form is ready
-                var loading = document.getElementById('loading');
-                if (loading) {
-                    loading.style.display = 'none';
+                    // Generic Placeholder Fix for other fields
+                    if (input && input.tagName !== 'SELECT' && !input.placeholder) {
+                        let cleanText = text.replace(/\s*\*$/, '').trim();
+                        let required = text.includes('*');
+                        input.placeholder = required ? cleanText + ' *' : cleanText;
+                    }
                 }
+            });
+        }
+
+        // Use MutationObserver for robust dynamic loading handling
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (mutation.addedNodes.length) {
+                    applyFormFixes();
+                }
+            });
+        });
+
+        const target = document.getElementById('bitrix-form-container');
+        if (target) {
+            observer.observe(target, { childList: true, subtree: true });
+        }
+
+        // Initial apply just in case
+        applyFormFixes();
+
+        // Backup periodic check
+        const fixInterval = setInterval(() => {
+            applyFormFixes();
+            // If the form is clearly loaded and we've hidden fields, we can slow down or stop
+            if (document.querySelector('.b24-form')) {
+                // Keep running to ensure dynamic errors/re-renders stay fixed
             }
+        }, 1000);
 
-            modifyFields();
-            const interval = setInterval(modifyFields, 800);
-            setTimeout(() => clearInterval(interval), 10000);
-        }, 500);
+        // Stop interval after 15 seconds to save resources
+        setTimeout(() => clearInterval(fixInterval), 15000);
 
-        // Form submission tracking (optional)
+        // Form submission tracking
         document.addEventListener('submit', function (e) {
             if (e.target.classList.contains('b24-form')) {
                 console.log('Form submitted successfully!');

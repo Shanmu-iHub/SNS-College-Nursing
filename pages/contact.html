@@ -54,9 +54,8 @@
     <!-- Header -->
     <section class="relative h-[40vh] min-h-[400px] flex items-center justify-center text-white overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <img src="../static/images/imgggg/WhatsApp Image 2026-03-04 at 10.08.10 AM.jpeg" alt="Contact Us"
-                class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30"></div>
+            <img src="../static/images/Nursing Hero.jpg" alt="Contact Us" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/50 bg-gradient-to-r from-black/70 via-black/50 to-black/30"></div>
         </div>
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 class="text-4xl lg:text-6xl font-extrabold mb-6 leading-tight">Contact Us</h1>
@@ -100,109 +99,147 @@
                 </div>
                 <div class="bg-gray-50 rounded-2xl p-8">
                     <h3 class="text-2xl md:text-3xl font-bold mb-6 text-center">Admission and Enquiry Form</h3>
+                    <div id="bitrix-form-container"></div>
                     <script data-b24-form="inline/18/m4ecvi" data-skip-moving="true">
                             (function (w, d, u) {
-                                var s = d.createElement('script'); s.async = true; s.src = u + '?' + (Date.now() / 180000 | 0);
-                                var h = d.getElementsByTagName('script')[0]; h.parentNode.insertBefore(s, h);
+                                var s = d.createElement('script');
+                                s.async = true;
+                                s.src = u + '?' + (Date.now() / 180000 | 0);
+                                var h = d.getElementsByTagName('script')[0];
+                                h.parentNode.insertBefore(s, h);
                             })(window, document, 'https://cdn.bitrix24.com/b11752903/crm/form/loader_18.js');
                     </script>
                     <style>
-                        .b24-form-control-label {
+                        /* Bitrix Form Custom Styles */
+                        .b24-form-wrapper {
+                            background: transparent !important;
+                            border: none !important;
+                            padding: 0 !important;
+                            box-shadow: none !important;
+                            margin: 0 !important;
+                        }
+
+                        .b24-form-header {
                             display: none !important;
                         }
 
                         .b24-form-field {
-                            margin-bottom: 20px !important;
+                            margin-bottom: 24px !important;
+                        }
+
+                        .b24-form-control-label {
+                            position: absolute !important;
+                            opacity: 0 !important;
+                            pointer-events: none !important;
+                        }
+
+                        .b24-form-control {
+                            width: 100% !important;
+                            background: #f7fafc !important;
+                            border: 2px solid #e2e8f0 !important;
+                            border-radius: 12px !important;
+                            padding: 14px 18px !important;
+                            font-size: 15px !important;
+                            color: #1a202c !important;
+                            transition: all 0.3s ease !important;
+                        }
+
+                        .b24-form-control:focus {
+                            border-color: #E5097F !important;
+                            background: #ffffff !important;
+                            outline: none !important;
+                            box-shadow: 0 0 0 3px rgba(229, 9, 127, 0.1) !important;
+                        }
+
+                        .b24-form-btn {
+                            width: 100% !important;
+                            margin-top: 10px !important;
+                            padding: 16px 24px !important;
+                            border-radius: 12px !important;
+                            background: linear-gradient(135deg, #E5097F 0%, #b00761 100%) !important;
+                            color: #ffffff !important;
+                            font-size: 16px !important;
+                            font-weight: 600 !important;
+                            border: none !important;
+                            cursor: pointer !important;
+                            transition: all 0.3s ease !important;
                         }
                     </style>
                     <script>
-                        /* Dynamic Form Modifications */
-                        setTimeout(function () {
+                        (function () {
                             const snsColleges = [
                                 "SNS College of Technology",
-                                "SNS College of Nursing",
-                                "SNS College of Allied Health and Sciences",
-                                "SNS College of Physiotherapy",
+                                "SNS College of Engineering",
                                 "Dr. SNS Rajalakshmi College of Arts and Science",
+                                "SNS College of Allied Health Sciences",
+                                "SNS College of Pharmacy",
+                                "SNS College of Nursing",
+                                "SNS College of Physiotherapy",
                                 "Dr. SNS College of Education"
                             ];
 
-                            function modifyFields() {
-                                // Global Focus Protection
-                                if (document.activeElement && (
-                                    document.activeElement.tagName === 'INPUT' ||
-                                    document.activeElement.tagName === 'SELECT' ||
-                                    document.activeElement.tagName === 'TEXTAREA' ||
-                                    document.activeElement.closest('.b24-form-field')
-                                )) {
-                                    return;
-                                }
-
-                                document.querySelectorAll('.b24-form-field').forEach(function (field) {
+                            function applyFormFixes() {
+                                const fields = document.querySelectorAll('.b24-form-field');
+                                fields.forEach(field => {
                                     const label = field.querySelector('.b24-form-control-label');
-                                    let input = field.querySelector('.b24-form-control');
-                                    if (!label && !input) return;
+                                    const input = field.querySelector('.b24-form-control');
 
-                                    const text = label ? label.textContent.toLowerCase() : "";
+                                    if (label) {
+                                        const text = label.textContent.trim();
 
-                                    // 1. Remove "Admission To Grade"
-                                    if (text.includes("grade")) {
-                                        field.style.display = 'none';
-                                    }
+                                        if (text.includes('Admission To Grade')) {
+                                            field.style.display = 'none';
+                                            return;
+                                        }
 
-                                    // 2. Handle "Choose College"
-                                    if (text.includes("cbse school") || (input && input.placeholder && input.placeholder.toLowerCase().includes("cbse school"))) {
-                                        if (label && label.textContent !== "Choose College *") label.textContent = "Choose College *";
-                                        if (input) {
-                                            if (input.placeholder !== "Choose College *") input.placeholder = "Choose College *";
-
-                                            // Convert text input to select if needed
-                                            if (input.tagName === 'INPUT' && !input.dataset.converted) {
+                                        if (text.includes('SNSACD') || text.includes('SNS Academy') || text.includes('CBSE SCHOOL')) {
+                                            label.textContent = "Choose College *";
+                                            if (input && input.tagName !== 'SELECT' && !input.dataset.replaced) {
                                                 const select = document.createElement('select');
-                                                for (let attr of input.attributes) {
-                                                    if (attr.name !== 'type' && attr.name !== 'value') select.setAttribute(attr.name, attr.value);
-                                                }
                                                 select.className = input.className;
-                                                select.dataset.converted = "true";
+                                                select.name = input.name;
+                                                select.required = true;
+                                                select.dataset.replaced = "true";
+                                                select.innerHTML = '<option value="">Choose College *</option>' +
+                                                    snsColleges.map(c => `<option value="${c}">${c}</option>`).join('');
                                                 input.parentNode.replaceChild(select, input);
-                                                input = select;
+                                                select.addEventListener('change', () => select.dispatchEvent(new Event('input', { bubbles: true })));
                                             }
+                                            return;
+                                        }
 
-                                            if (input.tagName === 'SELECT' && !input.dataset.replaced) {
-                                                input.innerHTML = '<option value="">Choose College *</option>' +
-                                                    snsColleges.map(function (c) { return '<option value="' + c + '">' + c + '</option>'; }).join('');
-                                                input.dataset.replaced = "true";
-                                                input.value = "";
-                                                input.dispatchEvent(new Event('change', { bubbles: true }));
+                                        if (text.includes('Name of the Child')) {
+                                            label.textContent = text.replace('Name of the Child', 'Name of the Candidate');
+                                            if (input && input.tagName !== 'SELECT') {
+                                                input.placeholder = label.textContent + (text.includes('*') ? '' : ' *');
                                             }
                                         }
-                                    }
 
-                                    // 3. Passive purge of "SNSACD" - only once
-                                    if (input && input.value && input.value.includes("SNSACD") && !input.dataset.purged) {
-                                        input.value = "";
-                                        input.dataset.purged = "true";
-                                        input.dispatchEvent(new Event('change', { bubbles: true }));
-                                    }
-
-                                    // Sync placeholders
-                                    if (label && input && (!input.placeholder || !input.placeholder.includes("*"))) {
-                                        let labelText = label.textContent.replace(/\s*\*$/, '').trim();
-                                        if (labelText) {
-                                            const newPlaceholder = label.textContent.includes('*') ? labelText + ' *' : labelText;
-                                            if (input.placeholder !== newPlaceholder) {
-                                                input.placeholder = newPlaceholder;
+                                        if (text.includes('Parent Name')) {
+                                            label.textContent = text.replace('Parent Name', 'Parent / Guardian Name');
+                                            if (input && input.tagName !== 'SELECT') {
+                                                input.placeholder = label.textContent + (text.includes('*') ? '' : ' *');
                                             }
+                                        }
+
+                                        if (input && input.tagName !== 'SELECT' && !input.placeholder) {
+                                            input.placeholder = text;
                                         }
                                     }
                                 });
                             }
 
-                            // Run multiple times to ensure we catch the form load
-                            modifyFields();
-                            const interval = setInterval(modifyFields, 800);
-                            setTimeout(() => clearInterval(interval), 10000);
-                        }, 500);
+                            const observer = new MutationObserver((mutations) => {
+                                mutations.forEach((mutation) => {
+                                    if (mutation.addedNodes.length) applyFormFixes();
+                                });
+                            });
+
+                            const target = document.getElementById('bitrix-form-container');
+                            if (target) observer.observe(target, { childList: true, subtree: true });
+
+                            setInterval(applyFormFixes, 1000);
+                        })();
                     </script>
                 </div>
             </div>
