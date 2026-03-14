@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Success Stories | SNS College of Nursing - First Design Thinking Nursing College in India</title>
+    <meta name="description"
+        content="Celebrating the achievements and inspiring journeys of our nursing students and alumni at SNS College of Nursing, Coimbatore.">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -22,7 +24,7 @@
                             500: '#f03a9f',
                             600: '#E5097F',
                             700: '#b00761',
-                            800: '#7d0545',
+                            800: '#7d0445',
                             900: '#4a0329',
                         }
                     }
@@ -43,6 +45,15 @@
 
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="icon" type="image/png" href="../static/sns-nursing-favicon.png">
+
+    <style>
+        .story-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .story-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.12); }
+        .filter-btn.active { background-color: #E5097F; color: white; }
+        .filter-btn { transition: all 0.2s ease; }
+        .story-img { transition: transform 0.6s ease; }
+        .story-card:hover .story-img { transform: scale(1.05); }
+    </style>
 </head>
 
 <body class="antialiased bg-gray-50">
@@ -50,111 +61,222 @@
     <div id="header"></div>
     <script src="../assets/js/header-loader.js"></script>
 
-    <!-- Header -->
-    <section class="relative h-[40vh] min-h-[400px] flex items-center justify-center text-white overflow-hidden">
+    <!-- Hero Section -->
+    <section class="relative h-[50vh] min-h-[420px] flex items-center justify-center text-white overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <img src="../static/images/imgggg/WhatsApp Image 2026-03-04 at 10.28.57 AM.jpeg" alt="Success Stories"
-                class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30"></div>
+            <img src="../static/images/nursing-hero-group.jpg" alt="Success Stories"
+                class="w-full h-full object-cover object-top">
+            <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70"></div>
         </div>
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 class="text-4xl lg:text-6xl font-extrabold mb-6 leading-tight">Success Stories</h1>
-            <p class="text-xl lg:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed">Celebrating the achievements
-                and inspiring journeys of our nursing professionals making a difference globally</p>
+        <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <nav class="mb-6">
+                <div class="flex items-center justify-center space-x-2 text-sm text-white/80">
+                    <a href="../index.html" class="hover:text-white transition">Home</a>
+                    <i class="fas fa-chevron-right text-xs"></i>
+                    <span class="text-white">Success Stories</span>
+                </div>
+            </nav>
+            <h1 class="text-4xl lg:text-6xl font-extrabold mb-4 leading-tight">Success Stories</h1>
+            <p class="text-lg lg:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+                Celebrating the achievements, breakthroughs, and inspiring journeys of our students making their mark in the world
+            </p>
+            <div class="mt-6 flex justify-center">
+                <div class="w-24 h-1 bg-orange-500 rounded-full"></div>
+            </div>
         </div>
     </section>
 
-    <!-- Global Reach Section -->
-    <section class="py-24 bg-gray-50">
+    <!-- Filter Tabs -->
+    <div class="bg-white border-b border-gray-200 sticky top-[80px] z-30 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-center mb-16">Our Alumni Across the Globe</h2>
-            <div class="grid md:grid-cols-3 gap-12">
-                <div class="bg-white p-8 rounded-3xl shadow-sm text-center">
-                    <i class="fas fa-globe-americas text-4xl text-blue-600 mb-6"></i>
-                    <h3 class="text-xl font-bold mb-4">USA & UK Placements</h3>
-                    <p class="text-gray-600">Our graduates are serving in prestigious healthcare systems across the
-                        United States and the United Kingdom.</p>
+            <div class="flex gap-2 overflow-x-auto py-3 scrollbar-hide" id="filter-tabs">
+                <button onclick="filterStories('all')" class="filter-btn active flex-shrink-0 px-5 py-2 rounded-full text-sm font-semibold border border-orange-600 text-orange-600" data-cat="all">
+                    All Stories
+                </button>
+                <button onclick="filterStories('academic')" class="filter-btn flex-shrink-0 px-5 py-2 rounded-full text-sm font-semibold border border-gray-300 text-gray-600 hover:border-orange-600 hover:text-orange-600" data-cat="academic">
+                    Academic Excellence
+                </button>
+                <button onclick="filterStories('sports')" class="filter-btn flex-shrink-0 px-5 py-2 rounded-full text-sm font-semibold border border-gray-300 text-gray-600 hover:border-orange-600 hover:text-orange-600" data-cat="sports">
+                    Sports Champions
+                </button>
+                <button onclick="filterStories('community')" class="filter-btn flex-shrink-0 px-5 py-2 rounded-full text-sm font-semibold border border-gray-300 text-gray-600 hover:border-orange-600 hover:text-orange-600" data-cat="community">
+                    Community Impact
+                </button>
+                <button onclick="filterStories('global')" class="filter-btn flex-shrink-0 px-5 py-2 rounded-full text-sm font-semibold border border-gray-300 text-gray-600 hover:border-orange-600 hover:text-orange-600" data-cat="global">
+                    Global Placements
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Featured Story -->
+    <section class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-orange-50 rounded-3xl overflow-hidden shadow-lg flex flex-col lg:flex-row" id="featured-story">
+                <div class="lg:w-1/2 h-72 lg:h-auto overflow-hidden relative">
+                    <img src="../static/images/imgggg/ooo/WhatsApp Image 2026-03-04 at 1.05.47 PM.jpeg"
+                        alt="Featured Story" class="w-full h-full object-cover story-img">
                 </div>
-                <!-- ... other items ... -->
-                <div class="bg-white p-8 rounded-3xl shadow-sm text-center">
-                    <i class="fas fa-hospital-alt text-4xl text-blue-600 mb-6"></i>
-                    <h3 class="text-xl font-bold mb-4">Leading Indian Hospitals</h3>
-                    <p class="text-gray-600">Alumni working in top super-specialty hospitals like Apollo, Fortis, and
-                        Max Healthcare.</p>
-                </div>
-                <div class="bg-white p-8 rounded-3xl shadow-sm text-center">
-                    <i class="fas fa-user-md text-4xl text-blue-600 mb-6"></i>
-                    <h3 class="text-xl font-bold mb-4">Nursing Educators</h3>
-                    <p class="text-gray-600">Many of our alumni have pursued higher education and are now shaping future
-                        nurses as educators.</p>
+                <div class="lg:w-1/2 p-10 flex flex-col justify-center">
+                    <span class="inline-flex items-center gap-2 bg-orange-100 text-orange-700 text-xs font-bold px-3 py-1 rounded-full w-fit mb-4">
+                        <i class="fas fa-star text-orange-500"></i> Featured Story
+                    </span>
+                    <h2 class="text-3xl font-extrabold text-gray-900 mb-4">All-Rounder Award – Student Excellence</h2>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        Celebrating our outstanding student who exemplifies excellence in academics, clinical practice, and extracurricular activities at SNS College of Nursing. This award recognizes all-round achievement and dedication to the nursing profession.
+                    </p>
+                    <div class="flex items-center gap-3 text-sm text-gray-500 mb-6">
+                        <span>SNS College of Nursing</span>
+                        <span>•</span>
+                        <span>Academic Excellence</span>
+                        <span>•</span>
+                        <span>2026</span>
+                    </div>
+                    <a href="#" class="inline-flex items-center text-orange-600 font-bold hover:gap-3 gap-2 transition-all">
+                        Read Full Story <i class="fas fa-arrow-right text-sm"></i>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Student Achievements -->
-    <section class="py-24 bg-white">
+    <!-- Stories Grid -->
+    <section class="py-8 pb-20 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <span class="text-orange-600 font-bold tracking-wider uppercase text-sm mb-2 block">Excellence</span>
-                <h2 class="text-4xl font-bold text-gray-900 mb-4">Student Achievements</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Celebrating the remarkable milestones and
-                    recognitions earned by our talented students.</p>
-            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="stories-grid">
 
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Achievement 1 -->
-                <div
-                    class="bg-gray-50 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 group">
-                    <div class="h-64 overflow-hidden relative">
-                        <img src="../static/images/imgggg/ooo/WhatsApp Image 2026-03-04 at 1.05.47 PM.jpeg"
-                            alt="All Rounder"
-                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition duration-500">
-                        </div>
-                    </div>
-                    <div class="p-8 text-center">
-                        <h3 class="text-2xl font-bold text-gray-900 mb-2">All Rounder</h3>
-                    </div>
-                </div>
-
-                <!-- Achievement 2 -->
-                <div
-                    class="bg-gray-50 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 group">
-                    <div class="h-64 overflow-hidden relative">
+                <!-- Story 1 -->
+                <div class="story-card bg-white rounded-2xl overflow-hidden shadow-md" data-cat="academic">
+                    <div class="h-56 overflow-hidden relative">
                         <img src="../static/images/imgggg/ooo/WhatsApp Image 2026-03-04 at 1.09.08 PM.jpeg"
-                            alt="World Environment Day 2021"
-                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition duration-500">
-                        </div>
+                            alt="World Environment Day" class="w-full h-full object-cover story-img">
+                        <span class="absolute top-3 left-3 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full">Academic</span>
                     </div>
-                    <div class="p-8 text-center">
-                        <p class="text-gray-700 text-sm leading-relaxed">Heartfelt congratulations to Ms. D. MadhuPriya
-                            of SNS College of Nursing, on winning III Price in Nurture The Nature - Video Contest in the
-                            commemoration of World Environment Day 2021 Organized by Ganga College of Nursing,
-                            Coimbatore.</p>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">World Environment Day – III Prize Winner</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                            Congratulations to Ms. D. MadhuPriya of SNS College of Nursing, on winning III Prize in the Nurture The Nature Video Contest, organized by Ganga College of Nursing, Coimbatore.
+                        </p>
+                        <div class="flex items-center gap-2 text-xs text-gray-400 mb-4">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>2021</span>
+                        </div>
+                        <a href="#" class="inline-flex items-center text-orange-600 font-semibold text-sm hover:gap-3 gap-1 transition-all">
+                            Read More <i class="fas fa-arrow-right text-xs"></i>
+                        </a>
                     </div>
                 </div>
 
-                <!-- Achievement 3 -->
-                <div
-                    class="bg-gray-50 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 group">
-                    <div class="h-64 overflow-hidden relative">
+                <!-- Story 2 -->
+                <div class="story-card bg-white rounded-2xl overflow-hidden shadow-md" data-cat="academic">
+                    <div class="h-56 overflow-hidden relative">
                         <img src="../static/images/imgggg/ooo/WhatsApp Image 2026-03-04 at 1.10.46 PM (1).jpeg"
-                            alt="Slogan Writing Competition"
-                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition duration-500">
-                        </div>
+                            alt="Slogan Writing" class="w-full h-full object-cover story-img">
+                        <span class="absolute top-3 left-3 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full">Academic</span>
                     </div>
-                    <div class="p-8 text-center">
-                        <p class="text-gray-700 text-sm leading-relaxed">Our student Ms.R.Subitsha from the SNS College
-                            of Nursing won the Slogan Writing & Pic Collage competition Organized by KG College of
-                            Nursing, Coimbatore. Congratulations on winning.</p>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Slogan Writing & Pic Collage – Winner</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                            Our student Ms. R. Subitsha from SNS College of Nursing won the Slogan Writing & Pic Collage competition organized by KG College of Nursing, Coimbatore. Congratulations!
+                        </p>
+                        <div class="flex items-center gap-2 text-xs text-gray-400 mb-4">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>2022</span>
+                        </div>
+                        <a href="#" class="inline-flex items-center text-orange-600 font-semibold text-sm hover:gap-3 gap-1 transition-all">
+                            Read More <i class="fas fa-arrow-right text-xs"></i>
+                        </a>
                     </div>
                 </div>
+
+                <!-- Story 3 -->
+                <div class="story-card bg-white rounded-2xl overflow-hidden shadow-md" data-cat="global">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="../static/images/nursing-hero-group.jpg"
+                            alt="Global Placements" class="w-full h-full object-cover story-img">
+                        <span class="absolute top-3 left-3 bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full">Global</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">USA & UK Placements – Alumni Abroad</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                            Our graduates are making their mark in prestigious healthcare systems across the United States and United Kingdom, representing SNS College of Nursing globally.
+                        </p>
+                        <div class="flex items-center gap-2 text-xs text-gray-400 mb-4">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>2025</span>
+                        </div>
+                        <a href="#" class="inline-flex items-center text-orange-600 font-semibold text-sm hover:gap-3 gap-1 transition-all">
+                            Read More <i class="fas fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Story 4 -->
+                <div class="story-card bg-white rounded-2xl overflow-hidden shadow-md" data-cat="community">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="../static/images/imgggg/WhatsApp Image 2026-03-04 at 10.25.04 AM.jpeg"
+                            alt="Community Service" class="w-full h-full object-cover story-img">
+                        <span class="absolute top-3 left-3 bg-purple-600 text-white text-xs font-bold px-3 py-1 rounded-full">Community</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Social Responsibility – Community Outreach</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                            SNS College of Nursing students actively participate in community health camps, raising awareness about preventive healthcare and serving underprivileged communities in Coimbatore.
+                        </p>
+                        <div class="flex items-center gap-2 text-xs text-gray-400 mb-4">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>2025</span>
+                        </div>
+                        <a href="#" class="inline-flex items-center text-orange-600 font-semibold text-sm hover:gap-3 gap-1 transition-all">
+                            Read More <i class="fas fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Story 5 -->
+                <div class="story-card bg-white rounded-2xl overflow-hidden shadow-md" data-cat="sports">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="../static/images/imgggg/WhatsApp Image 2026-03-04 at 10.15.52 AM.jpeg"
+                            alt="Sports Achievement" class="w-full h-full object-cover story-img">
+                        <span class="absolute top-3 left-3 bg-orange-600 text-white text-xs font-bold px-3 py-1 rounded-full">Sports</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Inter-University Sports – Champions</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                            Our nursing students brought glory to SNS by winning medals in the Inter-University Sports Meet, showcasing that excellence in nursing goes hand-in-hand with sporting achievement.
+                        </p>
+                        <div class="flex items-center gap-2 text-xs text-gray-400 mb-4">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>2025</span>
+                        </div>
+                        <a href="#" class="inline-flex items-center text-orange-600 font-semibold text-sm hover:gap-3 gap-1 transition-all">
+                            Read More <i class="fas fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Story 6 -->
+                <div class="story-card bg-white rounded-2xl overflow-hidden shadow-md" data-cat="global">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="../static/images/imgggg/WhatsApp Image 2026-03-04 at 10.13.22 AM.jpeg"
+                            alt="Top Hospital" class="w-full h-full object-cover story-img">
+                        <span class="absolute top-3 left-3 bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full">Global</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Top Hospital Placements – Apollo & Fortis</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                            SNS College of Nursing alumni are serving in leading super-specialty hospitals like Apollo, Fortis, and Max Healthcare, proving our training is of the highest standard.
+                        </p>
+                        <div class="flex items-center gap-2 text-xs text-gray-400 mb-4">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>2025</span>
+                        </div>
+                        <a href="#" class="inline-flex items-center text-orange-600 font-semibold text-sm hover:gap-3 gap-1 transition-all">
+                            Read More <i class="fas fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -171,13 +293,11 @@
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="admissions.html"
                     class="bg-white text-orange-600 hover:bg-gray-100 px-8 py-4 rounded-xl font-bold text-lg transition shadow-xl">
-                    <i class="fas fa-pen-to-square mr-2"></i>
-                    Apply for Admission
+                    <i class="fas fa-pen-to-square mr-2"></i>Apply for Admission
                 </a>
                 <a href="contact.html"
                     class="bg-white/20 backdrop-blur-lg hover:bg-white/30 text-white px-8 py-4 rounded-xl font-bold text-lg transition">
-                    <i class="fas fa-hospital mr-2"></i>
-                    Visit Clinical Campus
+                    <i class="fas fa-hospital mr-2"></i>Visit Clinical Campus
                 </a>
             </div>
         </div>
@@ -185,6 +305,32 @@
 
     <div id="footer"></div>
     <script src="../assets/js/footer-loader.js"></script>
+
+    <script>
+        function filterStories(cat) {
+            // Update button styles
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active', 'bg-orange-600', 'text-white', 'border-orange-600');
+                btn.classList.add('border-gray-300', 'text-gray-600');
+            });
+            const activeBtn = document.querySelector(`[data-cat="${cat}"]`);
+            if (activeBtn) {
+                activeBtn.classList.add('active');
+                activeBtn.classList.remove('border-gray-300', 'text-gray-600');
+                activeBtn.classList.add('border-orange-600', 'text-orange-600');
+            }
+
+            // Filter stories
+            document.querySelectorAll('#stories-grid > div').forEach(card => {
+                if (cat === 'all' || card.dataset.cat === cat) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+
 </body>
 
 </html>
