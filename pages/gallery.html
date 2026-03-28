@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Gallery | SNS College of Nursing - First Design Thinking Nursing College in India</title>
+    <meta name="description"
+        content="Explore our clinical labs, campus infrastructure, and student activities at SNS College of Nursing.">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        orange: {
+                            50: '#fff2f8',
+                            100: '#fee4f1',
+                            200: '#fcbde1',
+                            300: '#f996cd',
+                            400: '#f56bb7',
+                            500: '#f03a9f',
+                            600: '#E5097F',
+                            700: '#b00761',
+                            800: '#7d0545',
+                            900: '#4a0329',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="icon" type="image/png" href="../static/sns-nursing-favicon.png">
+</head>
+
+<body class="antialiased bg-gray-50">
+
+    <div id="header"></div>
+    <script src="../assets/js/header-loader.js"></script>
+
+    <!-- Header -->
+    <section class="relative h-[40vh] min-h-[400px] flex items-center justify-center text-white overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="../assets/images/facilities_hero.png" alt="Campus Gallery" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30"></div>
+        </div>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl lg:text-6xl font-extrabold mb-6 leading-tight">Campus Gallery</h1>
+            <p class="text-xl lg:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed">Explore our clinical labs,
+                campus infrastructure, and student activities</p>
+        </div>
+    </section>
+
+    <!-- Life at SNS College of Nursing -->
+    <section class="py-16 bg-gradient-to-br from-blue-50 to-orange-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-4 text-gray-900">Life @ SNS College of Nursing</h2>
+            <p class="text-center text-xl text-gray-600 mb-12">Nurturing compassionate healthcare professionals in a
+                vibrant environment</p>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Clinical Training 1 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-xl card-hover">
+                    <div class="h-64 relative overflow-hidden">
+                        <img src="../static/images/gallery/gallery-clinical-1.jpg" alt="Hands-on Clinical Training"
+                            class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2">Simulated Practice</h3>
+                        <p class="text-gray-600">Students participating in advanced life support simulation training.</p>
+                    </div>
+                </div>
+
+                <!-- Clinical Training 2 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-xl card-hover">
+                    <div class="h-64 relative overflow-hidden">
+                        <img src="../static/images/image copy 15.png" alt="Clinical Skills"
+                            class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2">Skill Enhancement</h3>
+                        <p class="text-gray-600">Mastering essential clinical maneuvers through expert-led demonstrations.</p>
+                    </div>
+                </div>
+
+                <!-- Clinical Training 3 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-xl card-hover">
+                    <div class="h-64 relative overflow-hidden">
+                        <img src="../static/images/gallery/gallery-clinical-3.jpg" alt="Lab Work"
+                            class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2">Microscopic Study</h3>
+                        <p class="text-gray-600">In-depth laboratory analysis and exploration of biological samples.</p>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- School Blocks -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-4">College Campus</h2>
+            <p class="text-center text-xl text-gray-600 mb-12">Advanced campus facilities with specialized clinical labs
+                and research centers</p>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 shadow-lg">
+                    <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-building text-4xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-center mb-4">A Block</h3>
+                    <p class="text-gray-700 text-center"> Academic block with smart classrooms</p>
+                </div>
+
+                <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-8 shadow-lg">
+                    <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-school text-4xl text-purple-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-center mb-4">B Block</h3>
+                    <p class="text-gray-700 text-center">Education wing with advanced facilities</p>
+                </div>
+
+                <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-8 shadow-lg">
+                    <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-landmark text-4xl text-green-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-center mb-4">C Block</h3>
+                    <p class="text-gray-700 text-center">Administrative block</p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="bg-white rounded-xl p-6 shadow-md text-center">
+                    <i class="fas fa-hospital-user text-4xl text-indigo-600 mb-3"></i>
+                    <h4 class="font-bold">Clinical Reception</h4>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-md text-center">
+                    <i class="fas fa-microscope text-4xl text-blue-600 mb-3"></i>
+                    <h4 class="font-bold">Advanced Bio-Labs</h4>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-md text-center">
+                    <i class="fas fa-stethoscope text-4xl text-pink-600 mb-3"></i>
+                    <h4 class="font-bold">Diagnostic Wing</h4>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-md text-center">
+                    <i class="fas fa-search-plus text-4xl text-purple-600 mb-3"></i>
+                    <h4 class="font-bold">Research Center</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-gradient-to-br from-cyan-50 to-blue-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-4xl font-bold text-center mb-12">State-of-the-Art Nursing Laboratories</h2>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            
+            <!-- Nursing Foundation Lab -->
+            <div class="bg-white rounded-2xl p-8 shadow-xl">
+                <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-6">
+                    <i class="fas fa-procedures text-3xl text-red-600"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-4">Nursing Foundation Lab</h3>
+                <p class="text-gray-600">Equipped with mannequins and simulation tools for basic nursing procedures and patient care training</p>
+            </div>
+
+            <!-- Anatomy & Physiology Lab -->
+            <div class="bg-white rounded-2xl p-8 shadow-xl">
+                <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+                    <i class="fas fa-heartbeat text-3xl text-blue-600"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-4">Anatomy & Physiology Lab</h3>
+                <p class="text-gray-600">Advanced models and specimens to understand human body structure and physiological functions</p>
+            </div>
+
+            <!-- Community Health Nursing Lab -->
+            <div class="bg-white rounded-2xl p-8 shadow-xl">
+                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
+                    <i class="fas fa-users text-3xl text-green-600"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-4">Community Health Nursing Lab</h3>
+                <p class="text-gray-600">Training setup for public health practices, home visits, and community-based healthcare services</p>
+            </div>
+
+            <!-- Nutrition Lab -->
+            <div class="bg-white rounded-2xl p-8 shadow-xl">
+                <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-6">
+                    <i class="fas fa-apple-alt text-3xl text-purple-600"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-4">Nutrition Lab</h3>
+                <p class="text-gray-600">Facilities to learn dietary planning, therapeutic nutrition, and food preparation for patient care</p>
+            </div>
+
+            <!-- Obstetrics & Pediatric Lab -->
+            <div class="bg-white rounded-2xl p-8 shadow-xl">
+                <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mb-6">
+                    <i class="fas fa-baby text-3xl text-yellow-600"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-4">Obstetrics & Pediatric Lab</h3>
+                <p class="text-gray-600">Simulation-based learning for maternal and child healthcare, including delivery and neonatal care</p>
+            </div>
+
+            <!-- Computer & Simulation Lab -->
+            <div class="bg-white rounded-2xl p-8 shadow-xl">
+                <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mb-6">
+                    <i class="fas fa-laptop-medical text-3xl text-primary-600"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-4">Computer & Simulation Lab</h3>
+                <p class="text-gray-600">Modern digital tools and virtual simulations to enhance clinical decision-making and nursing skills</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+    <!-- Other Facilities -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-12">Premium Facilities</h2>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gradient-to-br from-amber-50 to-primary-50 rounded-xl p-6">
+                    <i class="fas fa-briefcase text-4xl text-amber-600 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">Board Room</h3>
+                    <p class="text-gray-600 text-sm">Professional meeting space for important discussions</p>
+                </div>
+
+                <div class="bg-gradient-to-br from-rose-50 to-pink-50 rounded-xl p-6">
+                    <i class="fas fa-utensils text-4xl text-rose-600 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">VIP Dining</h3>
+                    <p class="text-gray-600 text-sm">Premium dining facility for guests and special events</p>
+                </div>
+
+                <div class="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-6">
+                    <i class="fas fa-bus text-4xl text-blue-600 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">Transport</h3>
+                    <p class="text-gray-600 text-sm">Safe and comfortable school bus service</p>
+                </div>
+
+                <div class="bg-gradient-to-br from-red-50 to-rose-50 rounded-xl p-6">
+                    <i class="fas fa-video text-4xl text-red-600 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">CCTV Security</h3>
+                    <p class="text-gray-600 text-sm">24/7 monitoring for student safety</p>
+                </div>
+
+                <div class="bg-gradient-to-br from-yellow-50 to-amber-50 rounded-xl p-6">
+                    <i class="fas fa-solar-panel text-4xl text-yellow-600 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">Solar Powered</h3>
+                    <p class="text-gray-600 text-sm">Eco-friendly campus with solar energy</p>
+                </div>
+
+                <div class="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-xl p-6">
+                    <i class="fas fa-wifi text-4xl text-purple-600 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">Wi-Fi Enabled</h3>
+                    <p class="text-gray-600 text-sm">Complete campus connectivity</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+
+
+
+    <!-- CTA -->
+    <section class="py-16 bg-gradient-to-r from-purple-600 to-pink-600 text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold mb-4">Experience Our Campus</h2>
+            <p class="text-xl mb-8">Schedule a visit to see our world-class infrastructure in person!</p>
+            <a href="../pages/contact.html"
+                class="bg-white text-purple-600 hover:bg-gray-100 px-8 py-4 rounded-xl font-bold text-lg transition inline-block">
+                <i class="fas fa-calendar-check mr-2"></i>
+                Book Campus Tour
+            </a>
+        </div>
+    </section>
+
+    <div id="footer"></div>
+    <script src="../assets/js/footer-loader.js"></script>
+</body>
+
+</html>
