@@ -43,6 +43,124 @@
 
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="icon" type="image/png" href="../static/sns-nursing-favicon.png">
+    <style>
+        .event-card {
+            position: relative;
+            height: 450px;
+            border-radius: 24px;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            background: #000;
+        }
+
+        .event-card img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0.8;
+        }
+
+        .event-card:hover img {
+            transform: scale(1.1);
+            opacity: 0.6;
+        }
+
+        .event-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, 
+                rgba(0, 0, 0, 0.95) 0%, 
+                rgba(0, 0, 0, 0.5) 40%, 
+                transparent 100%);
+            transition: all 0.5s ease;
+        }
+
+        .event-card:hover .event-overlay {
+            background: linear-gradient(to top, 
+                rgba(0, 0, 0, 0.98) 0%, 
+                rgba(0, 0, 0, 0.7) 60%, 
+                rgba(0, 0, 0, 0.3) 100%);
+        }
+
+        .event-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            z-index: 10;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .event-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 30px;
+            color: white;
+            z-index: 5;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .event-details {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-top: 0;
+        }
+
+        .event-card:hover .event-details {
+            max-height: 250px;
+            opacity: 1;
+            margin-top: 15px;
+        }
+
+        .event-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 20px;
+        }
+
+        .read-more-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 18px;
+            background: rgba(255, 255, 255, 1);
+            color: #000;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .read-more-btn:hover {
+            background: #E5097F;
+            color: white;
+            transform: translateX(5px);
+        }
+
+        /* Category Colors */
+        .bg-awareness { background: #0088CC; }
+        .bg-clinical { background: #3399FF; }
+        .bg-conference { background: #CC8800; }
+        .bg-celebration { background: #9933CC; }
+        .bg-cultural { background: #2266FF; }
+        .bg-wellness { background: #22AA55; }
+    </style>
 </head>
 
 <body class="antialiased bg-gray-50">
@@ -53,7 +171,7 @@
     <!-- Header -->
     <section class="relative h-[40vh] min-h-[400px] flex items-center justify-center text-white overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <img src="../static/images/imgggg/WhatsApp Image 2026-03-04 at 10.27.44 AM.jpeg" alt="Events & Celebrations"
+            <img src="../assets/images/image copy 8.png" alt="Events & Celebrations"
                 class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30"></div>
         </div>
@@ -65,145 +183,175 @@
     </section>
 
     <!-- Event Grid -->
+<!-- Nursing Events - Allied Instagram Style -->
     <section class="py-16 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Card 1: Onam Celebration -->
-                <div
-                    class="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 group hover:-translate-y-2 transition duration-300">
-                    <div class="h-64 bg-gray-200 overflow-hidden relative">
-                        <img src="../static/images/imgggg/WhatsApp Image 2026-03-04 at 10.21.11 AM.jpeg"
-                            alt="Onam Celebration" class="w-full h-full object-cover">
-                        <div
-                            class="absolute top-4 left-4 bg-orange-600 text-white px-3 py-1 rounded-full text-xs font-bold">
-                            Cultural</div>
-                    </div>
-                    <div class="p-8">
-                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Onam Celebration</h3>
-                        <p class="text-gray-600 text-sm mb-4 leading-relaxed">
-                            Celebrating the harvest festival of Kerala with traditional pookalam, music, and the spirit
-                            of togetherness.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Card 2: Candle Ceremony -->
-                <div
-                    class="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 group hover:-translate-y-2 transition duration-300">
-                    <div class="h-64 bg-gray-200 overflow-hidden relative">
-                        <img src="../static/images/imgggg/WhatsApp Image 2026-03-04 at 10.22.51 AM.jpeg"
-                            alt="Candle Ceremony" class="w-full h-full object-cover">
-                        <div
-                            class="absolute top-4 left-4 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-bold">
-                            Professional</div>
-                    </div>
-                    <div class="p-8">
-                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Candle Ceremony</h3>
-                        <p class="text-gray-600 text-sm mb-4 leading-relaxed">
-                            A solemn event marking the dedication and commitment of nursing students to their
-                            professional calling.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Card 3: Women's Day Celebration -->
-                <div
-                    class="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 group hover:-translate-y-2 transition duration-300">
-                    <div class="h-64 bg-gray-200 overflow-hidden relative">
-                        <img src="../static/images/imgggg/WhatsApp Image 2026-03-04 at 10.25.56 AM.jpeg"
-                            alt="Women's Day Celebration" class="w-full h-full object-cover">
-                        <div
-                            class="absolute top-4 left-4 bg-pink-600 text-white px-3 py-1 rounded-full text-xs font-bold">
-                            Celebration</div>
-                    </div>
-                    <div class="p-8">
-                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Women's Day Celebration</h3>
-                        <p class="text-gray-600 text-sm mb-4 leading-relaxed">
-                            Honoring the resilience and contributions of women in healthcare and beyond.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Card 4: Yoga Day -->
-                <div
-                    class="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 group hover:-translate-y-2 transition duration-300">
-                    <div class="h-64 bg-gray-200 overflow-hidden relative">
-                        <img src="../static/images/imgggg/yoga-day.jpg"
-                            alt="International Yoga Day" class="w-full h-full object-cover">
-                        <div
-                            class="absolute top-4 left-4 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold">
-                            Wellness</div>
-                    </div>
-                    <div class="p-8">
-                        <h3 class="text-2xl font-bold text-gray-900 mb-3">International Yoga Day</h3>
-                        <p class="text-gray-600 text-sm mb-4 leading-relaxed">
-                            Celebrating health and mindfulness through yoga, fostering physical and mental well-being for our students.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Card 5: Nutri Fest -->
-                <div
-                    class="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 group hover:-translate-y-2 transition duration-300">
-                    <div class="h-64 bg-gray-200 overflow-hidden relative">
-                        <img src="../static/images/imgggg/nitri-fest.jpg"
-                            alt="Nutri Fest" class="w-full h-full object-cover">
-                        <div
-                            class="absolute top-4 left-4 bg-yellow-600 text-white px-3 py-1 rounded-full text-xs font-bold">
-                            Health</div>
-                    </div>
-                    <div class="p-8">
-                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Nutri Fest</h3>
-                        <p class="text-gray-600 text-sm mb-4 leading-relaxed">
-                            Promoting healthy eating habits and nutrition awareness among students and the local community.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Card 6: Health Campaign -->
-                <div
-                    class="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 group hover:-translate-y-2 transition duration-300">
-                    <div class="h-64 bg-gray-200 overflow-hidden relative">
-                        <img src="../static/images/imgggg/health-campaign.jpg"
-                            alt="Health Campaign" class="w-full h-full object-cover">
-                        <div
-                            class="absolute top-4 left-4 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold">
-                            Community</div>
-                    </div>
-                    <div class="p-8">
-                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Health Campaign</h3>
-                        <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- 1. Health Campaign -->
+            <div class="event-card group">
+                <img src="../static/images/imgggg/health-campaign.jpg" alt="Health Campaign">
+                <div class="event-overlay"></div>
+                <div class="event-badge bg-awareness text-white">Awareness Day</div>
+                <div class="event-content">
+                    <h3 class="text-2xl font-bold mb-2">Health Campaign</h3>
+                    <div class="event-details">
+                        <p class="text-sm text-gray-200 mb-4 leading-relaxed">
                             Spreading awareness and providing essential healthcare services to the community through our dedicated team.
                         </p>
+                        <div class="event-meta">
+                            <span><i class="fas fa-calendar-alt mr-2 text-blue-400"></i>Annual Event</span>
+                            <span><i class="fas fa-bullseye mr-2 text-blue-400"></i>Community Outreach</span>
+                        </div>
+                        <a href="https://www.instagram.com/p/DNj1YvbT4PI/?img_index=4" class="read-more-btn" target="_blank">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
             </div>
+
+            <!-- 2. Candle Ceremony -->
+            <div class="event-card group">
+                <img src="../static/images/imgggg/WhatsApp Image 2026-03-04 at 10.22.51 AM.jpeg" alt="Candle Ceremony">
+                <div class="event-overlay"></div>
+                <div class="event-badge bg-clinical text-white">Clinical Event</div>
+                <div class="event-content">
+                    <h3 class="text-2xl font-bold mb-2">Candle Ceremony</h3>
+                    <div class="event-details">
+                        <p class="text-sm text-gray-200 mb-4 leading-relaxed">
+                            A solemn event marking the dedication and commitment of nursing students to their professional calling.
+                        </p>
+                        <div class="event-meta">
+                            <span><i class="fas fa-file-signature mr-2 text-blue-300"></i>Professional Rite</span>
+                            <span><i class="fas fa-stethoscope mr-2 text-blue-300"></i>Nursing Ethics</span>
+                        </div>
+                        <a href="https://www.instagram.com/p/CfXoPrfBfC1/" class="read-more-btn" target="_blank">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Nutri Fest -->
+            <div class="event-card group">
+                <img src="../assets/images/image copy 12.png" alt="Nutri Fest">
+                <div class="event-overlay"></div>
+                <div class="event-badge bg-conference text-white">Festival</div>
+                <div class="event-content">
+                    <h3 class="text-2xl font-bold mb-2">Nutrition Fest</h3>
+                    <div class="event-details">
+                        <p class="text-sm text-gray-200 mb-4 leading-relaxed">
+                            Promoting healthy eating habits and nutrition awareness among students and the local community.
+                        </p>
+                        <div class="event-meta">
+                            <span><i class="fas fa-carrot mr-2 text-orange-400"></i>Health Summit</span>
+                            <span><i class="fas fa-apple-alt mr-2 text-orange-400"></i>Nutrition Focus</span>
+                        </div>
+                        <a href="https://www.facebook.com/snsinstitutions/posts/sns-college-of-nursing-and-the-department-of-catering-science-and-management-of-/5765875903494678/" class="read-more-btn" target="_blank">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Women's Day -->
+            <div class="event-card group">
+                <img src="../assets/images/image copy 15.png" alt="International Nurses Day">
+    
+                <div class="event-overlay"></div>
+
+                <div class="event-badge bg-blue-600 text-white">Healthcare Day</div>
+
+    <div class="event-content">
+        <h3 class="text-2xl font-bold mb-2">International Nurses Day</h3>
+
+        <div class="event-details">
+            <p class="text-sm text-gray-200 mb-4 leading-relaxed">
+                Celebrating the dedication, compassion, and invaluable contributions of nurses in delivering quality healthcare and saving lives.
+            </p>
+
+            <div class="event-meta">
+                <span><i class="fas fa-calendar-day mr-2 text-blue-400"></i>May 12</span>
+                <span><i class="fas fa-user-nurse mr-2 text-blue-400"></i>Healthcare Heroes</span>
+            </div>
+
+            <a href="https://www.instagram.com/p/DJiJDjHzv0Q/" 
+               class="read-more-btn" target="_blank">
+                Read More <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+            <!-- 5. Yoga Day -->
+            <div class="event-card group">
+                <img src="../static/images/imgggg/yoga-day.jpg" alt="International Yoga Day">
+                <div class="event-overlay"></div>
+                <div class="event-badge bg-wellness text-white">Wellness</div>
+                <div class="event-content">
+                    <h3 class="text-2xl font-bold mb-2">International Yoga Day</h3>
+                    <div class="event-details">
+                        <p class="text-sm text-gray-200 mb-4 leading-relaxed">
+                            Celebrating health and mindfulness through yoga, fostering physical and mental well-being for our students.
+                        </p>
+                        <div class="event-meta">
+                            <span><i class="fas fa-globe mr-2 text-green-400"></i>Global Event</span>
+                            <span><i class="fas fa-spa mr-2 text-green-400"></i>Mental Health</span>
+                        </div>
+                        <a href="https://www.instagram.com/p/CfEMym2p-oj/?img_index=5" class="read-more-btn" target="_blank">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. Onam Celebration -->
+            <div class="event-card group">
+                <img src="../assets/images/image copy 14.png" alt="Farewell Event">
+                <div class="event-overlay"></div>
+
+                <div class="event-badge bg-celebration text-white">Farewell</div>
+
+                <div class="event-content">
+        <h3 class="text-2xl font-bold mb-2">Farewell Event</h3>
+
+        <div class="event-details">
+            <p class="text-sm text-gray-200 mb-4 leading-relaxed">
+                A heartfelt farewell event celebrating the memories and achievements of our graduating students.
+            </p>
+
+            <div class="event-meta">
+                <span><i class="fas fa-calendar-alt mr-2 text-blue-500"></i>Special Event</span>
+                <span><i class="fas fa-users mr-2 text-blue-500"></i>Student Celebration</span>
+            </div>
+
+            <a href="https://www.instagram.com/p/DMZLAxMzi94/?img_index=1" class="read-more-btn" target="_blank">
+                Read More <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+        <!-- CTA Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold text-gray-900 mb-6">Be Part of Our Vibrant Community</h2>
+            <p class="text-xl text-gray-600 mb-8">
+                Join SNS College of Nursing and create professional networks and lifelong memories!
+            </p>
+            <a href="admissions.html"
+                class="inline-flex items-center bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl transition transform hover:-translate-y-1">
+                <i class="fas fa-pen-to-square mr-2"></i>
+                Apply for Admission
+            </a>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="py-20 bg-gradient-to-r from-orange-600 to-red-600 text-white">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-4xl lg:text-5xl font-bold mb-4">
-                Begin Your Journey in Healthcare Excellence
-            </h2>
-            <p class="text-xl opacity-90 mb-8 font-medium">
-                Admissions open for Academic Year 2026-27. Secure your seat at Coimbatore's premier nursing college.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="admissions.html"
-                    class="bg-white text-orange-600 hover:bg-gray-100 px-8 py-4 rounded-xl font-bold text-lg transition shadow-xl">
-                    <i class="fas fa-pen-to-square mr-2"></i>
-                    Apply for Admission
-                </a>
-                <a href="contact.html"
-                    class="bg-white/20 backdrop-blur-lg hover:bg-white/30 text-white px-8 py-4 rounded-xl font-bold text-lg transition">
-                    <i class="fas fa-hospital mr-2"></i>
-                    Visit Clinical Campus
-                </a>
-            </div>
-        </div>
-    </section>
+
+   
 
     <div id="footer"></div>
     <script src="../assets/js/footer-loader.js"></script>

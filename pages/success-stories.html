@@ -64,7 +64,7 @@
     <!-- Hero Section -->
     <section class="relative h-[50vh] min-h-[420px] flex items-center justify-center text-white overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <img src="../static/images/nursing-hero-group.jpg" alt="Success Stories"
+            <img src="../assets/images/image copy 11.png" alt="Success Stories"
                 class="w-full h-full object-cover object-top">
             <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70"></div>
         </div>
@@ -86,36 +86,49 @@
         </div>
     </section>
 
-    <!-- Featured Story -->
-    <section class="py-12 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-orange-50 rounded-3xl overflow-hidden shadow-lg flex flex-col lg:flex-row" id="featured-story">
-                <div class="lg:w-1/2 h-72 lg:h-auto overflow-hidden relative">
-                    <img src="../static/images/imgggg/ooo/WhatsApp Image 2026-03-04 at 1.05.47 PM.jpeg"
-                        alt="Featured Story" class="w-full h-full object-cover story-img">
+ <!-- Featured Story -->
+<section class="py-12 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-orange-50 rounded-3xl overflow-hidden shadow-lg flex flex-col lg:flex-row" id="featured-story">
+
+            <!-- Image -->
+            <div class="lg:w-1/2 h-72 lg:h-auto overflow-hidden relative">
+                <img src="../assets/images/image copy 16.png"
+                    alt="Paramedical Induction & ARP Awards 2025"
+                    class="w-full h-full object-cover story-img">
+            </div>
+
+            <!-- Content -->
+            <div class="lg:w-1/2 p-10 flex flex-col justify-center">
+
+                <span class="inline-flex items-center gap-2 bg-orange-100 text-orange-700 text-xs font-bold px-3 py-1 rounded-full w-fit mb-4">
+                    <i class="fas fa-award text-orange-500"></i> Special Event
+                </span>
+
+                <h2 class="text-3xl font-extrabold text-gray-900 mb-4">
+                    Paramedical Induction & ARP Awards 2025
+                </h2>
+
+                <p class="text-gray-600 leading-relaxed mb-6">
+                    The 2025–26 academic year began with a vibrant celebration at SNS Institutions, welcoming over 200 freshers from Allied Health Science, Pharmacy & Health Science, Nursing, and Physiotherapy at RNG Hall. The event also featured the Paramedical Induction Programme along with the ARP and Best Outgoing Graduate Awards Ceremony, marking a proud moment of recognition and new beginnings.
+                </p>
+
+                <div class="flex items-center gap-3 text-sm text-gray-500 mb-6">
+                    <span>SNS Institutions</span>
+                    <span>•</span>
+                    <span>Induction Programme</span>
+                    <span>•</span>
+                    <span>2025–26</span>
                 </div>
-                <div class="lg:w-1/2 p-10 flex flex-col justify-center">
-                    <span class="inline-flex items-center gap-2 bg-orange-100 text-orange-700 text-xs font-bold px-3 py-1 rounded-full w-fit mb-4">
-                        <i class="fas fa-star text-orange-500"></i> Featured Story
-                    </span>
-                    <h2 class="text-3xl font-extrabold text-gray-900 mb-4">All-Rounder Award – Student Excellence</h2>
-                    <p class="text-gray-600 leading-relaxed mb-6">
-                        Celebrating our outstanding student who exemplifies excellence in academics, clinical practice, and extracurricular activities at SNS College of Nursing. This award recognizes all-round achievement and dedication to the nursing profession.
-                    </p>
-                    <div class="flex items-center gap-3 text-sm text-gray-500 mb-6">
-                        <span>SNS College of Nursing</span>
-                        <span>•</span>
-                        <span>Academic Excellence</span>
-                        <span>•</span>
-                        <span>2026</span>
-                    </div>
-                    <a href="#" class="inline-flex items-center text-orange-600 font-bold hover:gap-3 gap-2 transition-all">
-                        Read Full Story <i class="fas fa-arrow-right text-sm"></i>
-                    </a>
-                </div>
+
+                <a href="https://www.instagram.com/p/DQk08PjE4fW/?img_index=4" class="inline-flex items-center text-orange-600 font-bold hover:gap-3 gap-2 transition-all">
+                    Read Full Story <i class="fas fa-arrow-right text-sm"></i>
+                </a>
+
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Filter Tabs -->
     <div class="bg-white border-b border-gray-200 shadow-sm">
@@ -124,9 +137,7 @@
                 <button onclick="filterStories('all')" class="filter-btn active flex-shrink-0 px-5 py-2 rounded-full text-sm font-semibold border border-orange-600 text-orange-600" data-cat="all">
                     All Stories
                 </button>
-                <button onclick="filterStories('academic')" class="filter-btn flex-shrink-0 px-5 py-2 rounded-full text-sm font-semibold border border-gray-300 text-gray-600 hover:border-orange-600 hover:text-orange-600" data-cat="academic">
-                    Academic Excellence
-                </button>
+               
                 <button onclick="filterStories('sports')" class="filter-btn flex-shrink-0 px-5 py-2 rounded-full text-sm font-semibold border border-gray-300 text-gray-600 hover:border-orange-600 hover:text-orange-600" data-cat="sports">
                     Sports Champions
                 </button>
@@ -145,50 +156,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="stories-grid">
 
-                <!-- Story 1 -->
-                <div class="story-card bg-white rounded-2xl overflow-hidden shadow-md" data-cat="academic">
-                    <div class="h-56 overflow-hidden relative">
-                        <img src="../static/images/imgggg/ooo/WhatsApp Image 2026-03-04 at 1.09.08 PM.jpeg"
-                            alt="World Environment Day" class="w-full h-full object-cover story-img">
-                        <span class="absolute top-3 left-3 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full">Academic</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">World Environment Day – III Prize Winner</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
-                            Congratulations to Ms. D. MadhuPriya of SNS College of Nursing, on winning III Prize in the Nurture The Nature Video Contest, organized by Ganga College of Nursing, Coimbatore.
-                        </p>
-                        <div class="flex items-center gap-2 text-xs text-gray-400 mb-4">
-                            <i class="fas fa-calendar-alt"></i>
-                            <span>2021</span>
-                        </div>
-                        <a href="#" class="inline-flex items-center text-orange-600 font-semibold text-sm hover:gap-3 gap-1 transition-all">
-                            Read More <i class="fas fa-arrow-right text-xs"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Story 2 -->
-                <div class="story-card bg-white rounded-2xl overflow-hidden shadow-md" data-cat="academic">
-                    <div class="h-56 overflow-hidden relative">
-                        <img src="../static/images/imgggg/ooo/WhatsApp Image 2026-03-04 at 1.10.46 PM (1).jpeg"
-                            alt="Slogan Writing" class="w-full h-full object-cover story-img">
-                        <span class="absolute top-3 left-3 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full">Academic</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Slogan Writing & Pic Collage – Winner</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
-                            Our student Ms. R. Subitsha from SNS College of Nursing won the Slogan Writing & Pic Collage competition organized by KG College of Nursing, Coimbatore. Congratulations!
-                        </p>
-                        <div class="flex items-center gap-2 text-xs text-gray-400 mb-4">
-                            <i class="fas fa-calendar-alt"></i>
-                            <span>2022</span>
-                        </div>
-                        <a href="#" class="inline-flex items-center text-orange-600 font-semibold text-sm hover:gap-3 gap-1 transition-all">
-                            Read More <i class="fas fa-arrow-right text-xs"></i>
-                        </a>
-                    </div>
-                </div>
-
+               
                 <!-- Story 3 -->
                 <div class="story-card bg-white rounded-2xl overflow-hidden shadow-md" data-cat="global">
                     <div class="h-56 overflow-hidden relative">
@@ -205,9 +173,7 @@
                             <i class="fas fa-calendar-alt"></i>
                             <span>2025</span>
                         </div>
-                        <a href="#" class="inline-flex items-center text-orange-600 font-semibold text-sm hover:gap-3 gap-1 transition-all">
-                            Read More <i class="fas fa-arrow-right text-xs"></i>
-                        </a>
+                       
                     </div>
                 </div>
 
@@ -227,9 +193,7 @@
                             <i class="fas fa-calendar-alt"></i>
                             <span>2025</span>
                         </div>
-                        <a href="#" class="inline-flex items-center text-orange-600 font-semibold text-sm hover:gap-3 gap-1 transition-all">
-                            Read More <i class="fas fa-arrow-right text-xs"></i>
-                        </a>
+                       
                     </div>
                 </div>
 
@@ -249,9 +213,7 @@
                             <i class="fas fa-calendar-alt"></i>
                             <span>2025</span>
                         </div>
-                        <a href="#" class="inline-flex items-center text-orange-600 font-semibold text-sm hover:gap-3 gap-1 transition-all">
-                            Read More <i class="fas fa-arrow-right text-xs"></i>
-                        </a>
+                        
                     </div>
                 </div>
 
@@ -271,9 +233,7 @@
                             <i class="fas fa-calendar-alt"></i>
                             <span>2025</span>
                         </div>
-                        <a href="#" class="inline-flex items-center text-orange-600 font-semibold text-sm hover:gap-3 gap-1 transition-all">
-                            Read More <i class="fas fa-arrow-right text-xs"></i>
-                        </a>
+                        
                     </div>
                 </div>
 
@@ -281,7 +241,9 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
+
+
+    <!-- Main CTA Section -->
     <section class="py-20 bg-gradient-to-r from-orange-600 to-red-600 text-white">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-4xl lg:text-5xl font-bold mb-4">
