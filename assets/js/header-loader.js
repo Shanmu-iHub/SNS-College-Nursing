@@ -19,6 +19,43 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 headerElement.innerHTML = data;
                 initializeHeader();
+                
+                // Active link highlighting
+                const currentPath = window.location.pathname;
+                const isHomePage = currentPath === '/' || currentPath === '/index.html' || currentPath.endsWith('/index.html');
+                
+                document.querySelectorAll('#header a, #header button').forEach(link => {
+                    const href = link.getAttribute('href');
+                    if (!href) return;
+                    
+                    // Home page handling
+                    if (isHomePage && (href === 'index.html' || href === '../index.html' || href === '/')) {
+                        if(link.classList.contains('text-gray-900')) {
+                            link.classList.remove('text-gray-900');
+                            link.classList.add('text-[#E5097F]');
+                        }
+                    }
+                    // Subpage handling
+                    else if (!isHomePage && href) {
+                        const targetPage = href.split('/').filter(Boolean).pop();
+                        if (targetPage && currentPath.includes(targetPage)) {
+                            if(link.classList.contains('text-gray-900')) {
+                                link.classList.remove('text-gray-900');
+                                link.classList.add('text-[#E5097F]');
+                            }
+                            
+                            // Also highlight parent dropdown button
+                            const dropdownContainer = link.closest('.group');
+                            if(dropdownContainer) {
+                                const btn = dropdownContainer.querySelector('button');
+                                if(btn && btn.classList.contains('text-gray-900')) {
+                                    btn.classList.remove('text-gray-900');
+                                    btn.classList.add('text-[#E5097F]');
+                                }
+                            }
+                        }
+                    }
+                });
             }
         })
         .catch(error => console.error('Error loading header:', error));
