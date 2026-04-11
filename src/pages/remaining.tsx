@@ -653,7 +653,7 @@ export const ContactPage = () => {
                             <i class="fas fa-envelope text-3xl text-green-600 mr-4"></i>
                             <div>
                                 <h3 class="font-bold text-xl mb-2">Email</h3>
-                                <p class="text-gray-700">General: principal@snsnursing.org<br>Career: job@snsgroups.com</p>
+                                <p class="text-gray-700">General: principal@snscnursing.org<br>Career: job@snsgroups.com</p>
                             </div>
                         </div>
                         <div class="flex items-start">

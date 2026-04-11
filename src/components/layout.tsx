@@ -453,7 +453,7 @@ export const Layout = (content: string, title: string, activePage: string = 'hom
                             <li><i class="fas fa-map-marker-alt mr-2"></i>SNS Kalvi Nagar, Sathy Main Road, Saravanampatti (PO),<br />Coimbatore - 641 107.</li>
                             <li><a href="tel:+919003655855" class="hover:text-white transition"><i class="fas fa-phone mr-2"></i>Admission - +91 90036 55855</a></li>
                             <li><a href="tel:+919384823868" class="hover:text-white transition"><i class="fas fa-phone mr-2"></i>Office - +91 9384823868</a></li>
-                            <li><a href="mailto:principal@snsnursing.org" class="hover:text-white transition"><i class="fas fa-envelope mr-2"></i>Email - principal@snsnursing.org</a></li>
+                            <li><a href="mailto:principal@snscnursing.org" class="hover:text-white transition"><i class="fas fa-envelope mr-2"></i>Email - principal@snscnursing.org</a></li>
                             <li><a href="mailto:job@snsgroups.com" class="hover:text-white transition"><i class="fas fa-envelope mr-2"></i>Career - job@snsgroups.com</a></li>
                         </ul>
                         <div class="flex space-x-3">
