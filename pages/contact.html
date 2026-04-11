@@ -105,151 +105,186 @@
                         </div>
                     </div>
                 </div>
-                <div class="bg-gray-50 rounded-2xl p-8">
-                    <h3 class="text-2xl md:text-3xl font-bold mb-6 text-center">Admission and Enquiry Form</h3>
-                    <div id="bitrix-form-container"></div>
-                    <script data-b24-form="inline/18/m4ecvi" data-skip-moving="true">
-                            (function (w, d, u) {
-                                var s = d.createElement('script');
-                                s.async = true;
-                                s.src = u + '?' + (Date.now() / 180000 | 0);
-                                var h = d.getElementsByTagName('script')[0];
-                                h.parentNode.insertBefore(s, h);
-                            })(window, document, 'https://cdn.bitrix24.com/b11752903/crm/form/loader_18.js');
-                    </script>
-                    <style>
-                        /* Bitrix Form Custom Styles */
-                        .b24-form-wrapper {
-                            background: transparent !important;
-                            border: none !important;
-                            padding: 0 !important;
-                            box-shadow: none !important;
-                            margin: 0 !important;
-                        }
+                <div class="admission-form-card">
+                    <div class="admission-form-header">
+                        <h3>Admission and Enquiry Form</h3>
+                        <p>Fill out the form below and we'll get back to you shortly</p>
+                    </div>
 
-                        .b24-form-header {
-                            display: none !important;
-                        }
+                    <form id="contact-admission-form" class="admission-form" onsubmit="return handleContactForm(event)">
+                        <div class="form-field">
+                            <input type="text" id="contact-adm-name" name="name" placeholder="Name *" required>
+                        </div>
 
-                        .b24-form-field {
-                            margin-bottom: 24px !important;
-                        }
+                        <div class="form-field">
+                            <input type="tel" id="contact-adm-phone" name="phone" placeholder="Phone *" required
+                                pattern="[0-9]{10}" title="Please enter a valid 10-digit phone number">
+                        </div>
 
-                        .b24-form-control-label {
-                            position: absolute !important;
-                            opacity: 0 !important;
-                            pointer-events: none !important;
-                        }
+                        <div class="form-field">
+                            <select id="contact-adm-college" name="college" required>
+                                <option value="" disabled selected>College *</option>
+                                <option value="SNS College of Nursing" selected>SNS College of Nursing</option>
+                                <option value="SNS College of Technology">SNS College of Technology</option>
+                                <option value="SNS College of Engineering">SNS College of Engineering</option>
+                                <option value="Dr. SNS Rajalakshmi College of Arts and Science">Dr. SNS Rajalakshmi College of Arts and Science</option>
+                                <option value="SNS College of Allied Health Sciences">SNS College of Allied Health Sciences</option>
+                                <option value="SNS College of Pharmacy">SNS College of Pharmacy</option>
+                                <option value="SNS College of Physiotherapy">SNS College of Physiotherapy</option>
+                                <option value="Dr. SNS College of Education">Dr. SNS College of Education</option>
+                            </select>
+                        </div>
 
-                        .b24-form-control {
-                            width: 100% !important;
-                            background: #f7fafc !important;
-                            border: 2px solid #e2e8f0 !important;
-                            border-radius: 12px !important;
-                            padding: 14px 18px !important;
-                            font-size: 15px !important;
-                            color: #1a202c !important;
-                            transition: all 0.3s ease !important;
-                        }
+                        <div class="form-field">
+                            <input type="text" id="contact-adm-purpose" name="purpose" placeholder="Enquiry-Purpose *" required>
+                        </div>
 
-                        .b24-form-control:focus {
-                            border-color: #E5097F !important;
-                            background: #ffffff !important;
-                            outline: none !important;
-                            box-shadow: 0 0 0 3px rgba(229, 9, 127, 0.1) !important;
-                        }
+                        <button type="submit" class="admission-submit-btn">APPLY NOW!</button>
+                    </form>
 
-                        .b24-form-btn {
-                            width: 100% !important;
-                            margin-top: 10px !important;
-                            padding: 16px 24px !important;
-                            border-radius: 12px !important;
-                            background: linear-gradient(135deg, #E5097F 0%, #b00761 100%) !important;
-                            color: #ffffff !important;
-                            font-size: 16px !important;
-                            font-weight: 600 !important;
-                            border: none !important;
-                            cursor: pointer !important;
-                            transition: all 0.3s ease !important;
-                        }
-                    </style>
-                    <script>
-                        (function () {
-                            const snsColleges = [
-                                "SNS College of Technology",
-                                "SNS College of Engineering",
-                                "Dr. SNS Rajalakshmi College of Arts and Science",
-                                "SNS College of Allied Health Sciences",
-                                "SNS College of Pharmacy",
-                                "SNS College of Nursing",
-                                "SNS College of Physiotherapy",
-                                "Dr. SNS College of Education"
-                            ];
-
-                            function applyFormFixes() {
-                                const fields = document.querySelectorAll('.b24-form-field');
-                                fields.forEach(field => {
-                                    const label = field.querySelector('.b24-form-control-label');
-                                    const input = field.querySelector('.b24-form-control');
-
-                                    if (label) {
-                                        const text = label.textContent.trim();
-
-                                        if (text.includes('Admission To Grade')) {
-                                            field.style.display = 'none';
-                                            return;
-                                        }
-
-                                        if (text.includes('SNSACD') || text.includes('SNS Academy') || text.includes('CBSE SCHOOL')) {
-                                            label.textContent = "Choose College *";
-                                            if (input && input.tagName !== 'SELECT' && !input.dataset.replaced) {
-                                                const select = document.createElement('select');
-                                                select.className = input.className;
-                                                select.name = input.name;
-                                                select.required = true;
-                                                select.dataset.replaced = "true";
-                                                select.innerHTML = '<option value="">Choose College *</option>' +
-                                                    snsColleges.map(c => `<option value="${c}">${c}</option>`).join('');
-                                                input.parentNode.replaceChild(select, input);
-                                                select.addEventListener('change', () => select.dispatchEvent(new Event('input', { bubbles: true })));
-                                            }
-                                            return;
-                                        }
-
-                                        if (text.includes('Name of the Child')) {
-                                            label.textContent = text.replace('Name of the Child', 'Name of the Candidate');
-                                            if (input && input.tagName !== 'SELECT') {
-                                                input.placeholder = label.textContent + (text.includes('*') ? '' : ' *');
-                                            }
-                                        }
-
-                                        if (text.includes('Parent Name')) {
-                                            label.textContent = text.replace('Parent Name', 'Parent / Guardian Name');
-                                            if (input && input.tagName !== 'SELECT') {
-                                                input.placeholder = label.textContent + (text.includes('*') ? '' : ' *');
-                                            }
-                                        }
-
-                                        if (input && input.tagName !== 'SELECT' && !input.placeholder) {
-                                            input.placeholder = text;
-                                        }
-                                    }
-                                });
-                            }
-
-                            const observer = new MutationObserver((mutations) => {
-                                mutations.forEach((mutation) => {
-                                    if (mutation.addedNodes.length) applyFormFixes();
-                                });
-                            });
-
-                            const target = document.getElementById('bitrix-form-container');
-                            if (target) observer.observe(target, { childList: true, subtree: true });
-
-                            setInterval(applyFormFixes, 1000);
-                        })();
-                    </script>
+                    <div id="contact-form-success-message" style="display:none; text-align:center; padding: 30px 20px;">
+                        <div style="width:64px; height:64px; background:#E5097F; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 16px;">
+                            <i class="fas fa-check" style="color:white; font-size:28px;"></i>
+                        </div>
+                        <h4 style="font-size:22px; font-weight:700; color:#1a202c; margin-bottom:8px;">Thank You!</h4>
+                        <p style="color:#718096; font-size:15px;">Your enquiry has been submitted successfully. We'll get back to you shortly.</p>
+                    </div>
                 </div>
+
+                <style>
+                    .admission-form-card {
+                        background: #ffffff;
+                        border-radius: 20px;
+                        padding: 40px 32px;
+                        box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.03);
+                    }
+
+                    .admission-form-header {
+                        text-align: center;
+                        margin-bottom: 32px;
+                    }
+
+                    .admission-form-header h3 {
+                        font-size: 26px;
+                        font-weight: 800;
+                        color: #1a202c;
+                        margin-bottom: 8px;
+                    }
+
+                    .admission-form-header p {
+                        font-size: 15px;
+                        color: #718096;
+                        font-weight: 400;
+                    }
+
+                    .admission-form .form-field {
+                        margin-bottom: 20px;
+                    }
+
+                    .admission-form .form-field input,
+                    .admission-form .form-field select {
+                        width: 100%;
+                        background: #f8f9fb;
+                        border: 2px solid #e8ecf1;
+                        border-radius: 14px;
+                        padding: 16px 20px;
+                        font-size: 15px;
+                        font-family: 'Inter', 'Poppins', sans-serif;
+                        color: #1a202c;
+                        transition: all 0.3s ease;
+                        outline: none;
+                        appearance: auto;
+                        -webkit-appearance: auto;
+                    }
+
+                    .admission-form .form-field input::placeholder {
+                        color: #a0aec0;
+                        font-weight: 400;
+                    }
+
+                    .admission-form .form-field input:focus,
+                    .admission-form .form-field select:focus {
+                        border-color: #E5097F;
+                        background: #ffffff;
+                        box-shadow: 0 0 0 4px rgba(229, 9, 127, 0.08);
+                    }
+
+                    .admission-form .form-field select {
+                        color: #a0aec0;
+                        cursor: pointer;
+                    }
+
+                    .admission-form .form-field select:valid {
+                        color: #1a202c;
+                    }
+
+                    .admission-submit-btn {
+                        width: 100%;
+                        margin-top: 8px;
+                        padding: 18px 24px;
+                        border-radius: 14px;
+                        background: linear-gradient(135deg, #E5097F 0%, #b00761 100%);
+                        color: #ffffff;
+                        font-size: 17px;
+                        font-weight: 700;
+                        letter-spacing: 1.5px;
+                        border: none;
+                        cursor: pointer;
+                        transition: all 0.3s ease;
+                        box-shadow: 0 4px 18px rgba(229, 9, 127, 0.35);
+                        font-family: 'Inter', 'Poppins', sans-serif;
+                    }
+
+                    .admission-submit-btn:hover {
+                        transform: translateY(-2px);
+                        box-shadow: 0 8px 25px rgba(229, 9, 127, 0.45);
+                        background: linear-gradient(135deg, #b00761 0%, #E5097F 100%);
+                    }
+
+                    .admission-submit-btn:active {
+                        transform: translateY(0);
+                    }
+
+                    @media (max-width: 768px) {
+                        .admission-form-card {
+                            padding: 28px 20px;
+                        }
+
+                        .admission-form-header h3 {
+                            font-size: 22px;
+                        }
+                    }
+                </style>
+
+                <script>
+                    function handleContactForm(e) {
+                        e.preventDefault();
+                        const form = document.getElementById('contact-admission-form');
+                        const successMsg = document.getElementById('contact-form-success-message');
+                        
+                        // Collect form data
+                        const name = document.getElementById('contact-adm-name').value;
+                        const phone = document.getElementById('contact-adm-phone').value;
+                        const college = document.getElementById('contact-adm-college').value;
+                        const purpose = document.getElementById('contact-adm-purpose').value;
+
+                        // Send data via mailto or log (you can replace with actual API endpoint)
+                        console.log('Contact Form Submitted:', { name, phone, college, purpose });
+
+                        // Show success message
+                        form.style.display = 'none';
+                        successMsg.style.display = 'block';
+
+                        // Reset form after 5 seconds
+                        setTimeout(() => {
+                            form.reset();
+                            form.style.display = 'block';
+                            successMsg.style.display = 'none';
+                        }, 5000);
+
+                        return false;
+                    }
+                </script>
             </div>
         </div>
     </section>
