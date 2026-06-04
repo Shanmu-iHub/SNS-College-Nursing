@@ -1,3 +1,12 @@
+// Clean URL from tracking parameters immediately
+if (window.location.search.includes('_ga=') || window.location.search.includes('_gl=')) {
+    const url = new URL(window.location.href);
+    url.searchParams.delete('_ga');
+    url.searchParams.delete('_gl');
+    url.searchParams.delete('_gcl_au');
+    window.history.replaceState({}, document.title, url.toString());
+}
+
 document.addEventListener("DOMContentLoaded", function () {
     const isSubpage = window.location.pathname.includes('/pages/');
     const headerPath = isSubpage ? '../header.html' : 'header.html';

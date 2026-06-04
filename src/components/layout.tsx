@@ -485,6 +485,15 @@ export const Layout = (content: string, title: string, activePage: string = 'hom
         <!-- JavaScript -->
         <script src="https://cdn.jsdelivr.net/npm/axios@1.6.0/dist/axios.min.js"></script>
         <script>
+            // Clean URL from tracking parameters immediately
+            if (window.location.search.includes('_ga=') || window.location.search.includes('_gl=')) {
+                const url = new URL(window.location.href);
+                url.searchParams.delete('_ga');
+                url.searchParams.delete('_gl');
+                url.searchParams.delete('_gcl_au');
+                window.history.replaceState({}, document.title, url.toString());
+            }
+
             // Mobile menu toggle
             const mobileMenuBtn = document.getElementById('mobile-menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
